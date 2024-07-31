@@ -7,11 +7,11 @@ import Footer from './components/Footer/Footer';
 const App: React.FC = () => {
   return (
     <>
-      <Header />
       <main className='views'>
+        <Header />
         <AppRoutes />
+        <Footer />
       </main>
-      <Footer />
     </>
   )
 };

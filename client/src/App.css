@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0px;
@@ -7,7 +9,10 @@
 body {
   background: black;
   text-align: center;
+}
 
+ul {
+  list-style-type: none;
 }
 
 a {
@@ -22,16 +27,9 @@ a:hover {
 .views {
   color: white;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Sofia Sans", sans-serif;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-textarea {
-  resize: none;
-}
-
-textarea:focus {
-  outline: none;
 }

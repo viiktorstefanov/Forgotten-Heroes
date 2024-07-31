@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&display=swap');
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-bar-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Cactus Classical Serif", serif;
+    font-weight: 400;
+    font-style: normal; 
+    cursor: pointer;
+}
+
+.nav-bar-logo h1 {
+    font-size: 3rem;
+    text-align: center;
+    padding: 2rem 0 3rem 0;
+    color: #f3d22d;
+}
+
+.nav-bar-border {
+    border-top: 5px solid #f3d22d;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.nav-bar-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Sofia-Sans, sans-serif;
+  font-size: 1.5rem;
+  gap: 5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 8rem;
+}
