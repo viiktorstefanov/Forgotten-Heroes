@@ -1,7 +1,7 @@
 const heroController = require('express').Router();
 const { parseError } = require('../utils/parseError');
 
-heroController.get('/', hasUser(), async(req, res) => {
+heroController.get('/', async(req, res) => {
     try {
       
     } catch (error) {
@@ -15,7 +15,7 @@ heroController.get('/', hasUser(), async(req, res) => {
     }
 });
 
-heroController.get('/:heroId', hasUser(), async(req, res) => {
+heroController.get('/:heroId', async(req, res) => {
   try {
     
   } catch (error) {

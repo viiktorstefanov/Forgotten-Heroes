@@ -1,7 +1,7 @@
 const questionController = require('express').Router();
 const { parseError } = require('../utils/parseError');
 
-questionController.get('/', hasUser(), async(req, res) => {
+questionController.get('/', async(req, res) => {
     try {
       
     } catch (error) {

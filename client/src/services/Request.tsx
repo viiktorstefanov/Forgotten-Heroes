@@ -1,28 +1,15 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
-const apiUrl = process.env.API_URL;
+const apiUrl = process.env.REACT_APP_API_URL;
 
-interface User {
-  accessToken: string;
-}
-
-interface Data {
-  
-}
-
-const request = async (method: string, url: string, data?: Data, user?: User) => {
+const request = async (method: string, url: string, data?: any) => {
   const options: AxiosRequestConfig = {
     method,
     url: `${apiUrl}${url}`,
     headers: {},
   };
 
-  if (user) {
-    options.headers!["H-Authorization"] = user.accessToken;
-    options.headers!.user = JSON.stringify(user);
-  }
-
-  if (data) {
+  if (data !== undefined) {
     options.headers!["Content-Type"] = "application/json";
     options.data = data;
   } 
