@@ -48,6 +48,7 @@ authController.post('/login', isGuest(), async(req, res) => {
 authController.get('/logout', hasUser(), async(req, res) => {
     try {
         const user = JSON.parse(req.headers.user);
+        
         const accessToken = req.headers.authorization?.split(' ')[1];
         await logout(accessToken);
         console.log(`${user.email} has signed out.`);
