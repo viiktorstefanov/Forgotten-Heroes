@@ -1,14 +1,57 @@
-const userController = require('express').Router();
-const { getUserPoints, editUserPoints } = require('../services/userService');
+const { register, login, logout } = require('../services/userService');
+const { body, validationResult } = require('express-validator');
 const { parseError } = require('../utils/parseError');
+const { isGuest, hasUser } = require('../middlewares/guards');
 
-userController.get('/:googleId', async(req, res) => {
+const authController = require('express').Router();
+
+authController.post('/register',
+    isGuest(),
+    body('email').isEmail().withMessage('Enter a valid email address.'),
+    body('password').isLength({ min: 8 }).withMessage('Enter a password with a minimum of 8 characters.'),
+    async (req, res) => {
+        try {
+            const { errors } = validationResult(req);
+            if (errors.length > 0) {
+                throw errors;
+            }
+            const userWithTokens = await register(req.body.email, req.body.password, req.body.firstName);
+            res.json(userWithTokens).end();
+            console.log(`User ${req.body.email} successfully registered.`);
+        } catch (error) {
+            const message = parseError(error);
+            console.log(message);
+            if(message.includes('\n')) {
+                const errors = message.split('\n')
+               return res.status(400).json({ message: errors }).end();
+            }
+            res.status(400).json({ message }).end();
+        }
+});
+
+authController.post('/login', isGuest(), async(req, res) => {
     try {
-        const googleId = req.params.googleId;
-        const userPoints = await getUserPoints(googleId);
+        const userWithTokens = await login(req.body.email, req.body.password);
+        res.json(userWithTokens).end();
+        console.log(`${req.body.email} has successfully signed in.`);
+    } catch (error) {
+        const message = parseError(error);
+    console.log(message);
+    if (message.includes("\n")) {
+      const errors = message.split("\n");
+      return res.status(400).json({ message: errors }).end();
+    }
+    res.status(400).json({ message }).end();
+    }
+});
 
-        res.json(userPoints).end();
-
+authController.get('/logout', hasUser(), async(req, res) => {
+    try {
+        const user = JSON.parse(req.headers.user);
+        const accessToken = req.headers.authorization?.split(' ')[1];
+        await logout(accessToken);
+        console.log(`${user.email} has signed out.`);
+        res.status(204).end();
     } catch (error) {
         const message = parseError(error);
         console.log(message);
@@ -20,24 +63,20 @@ userController.get('/:googleId', async(req, res) => {
     }
 });
 
-userController.put('/:googleId', async(req, res) => {
+authController.put('/points/:userId', isGuest(), async(req, res) => {
     try {
-        const googleId = req.params.googleId;
-        const points = req.body.points;
-
-        const userPoints = await editUserPoints(googleId, points);
-
-        res.json(userPoints).end();
-
+        const userWithTokens = await login(req.body.email, req.body.password);
+        res.json(userWithTokens).end();
+        console.log(`${req.body.email} has successfully signed in.`);
     } catch (error) {
         const message = parseError(error);
-        console.log(message);
-        if (message.includes("\n")) {
-          const errors = message.split("\n");
-          return res.status(400).json({ message: errors }).end();
-        }
-        res.status(400).json({ message }).end();
+    console.log(message);
+    if (message.includes("\n")) {
+      const errors = message.split("\n");
+      return res.status(400).json({ message: errors }).end();
+    }
+    res.status(400).json({ message }).end();
     }
 });
 
-module.exports = userController;
+module.exports = authController;

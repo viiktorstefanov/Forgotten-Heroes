@@ -1,21 +1,53 @@
 import request from './Request';
 
-export async function getUserPoints(googleId: string): Promise<number> {
-    try {
-        const data = await request.get(`/users/${googleId}`);
-        return data; 
-    } catch (error) {
-        console.error('Error fetching user points:', error);
-        throw error; 
-    }
-}
+const endpoints = {
+    register: '/users/register',
+    login: '/users/login',
+    logout: '/users/logout',
+    points: `/users/points/`
+};
 
+export type User = {
+    _id: string,
+    email: string,
+    firstName: string,
+    points: number,
+    accessToken: string,
+    refreshToken: string,
+};
 
-export async function updateUserPoints(googleId: string, points: number): Promise<void> {
-    try {
-        await request.put(`/users/${googleId}`, { points });
-    } catch (error) {
-        console.error('Error updating user points:', error);
-        throw error; 
-    }
+export type UserRegister = {
+    email: string,
+    password: string,
+    firstName: string,
+};
+
+export type LoginData = {
+    email: string,
+    password: string,
+};
+
+export type RegisterData = {
+    email: string,
+    password: string,
+    firstName: string,
+};
+
+export type PointsData = {
+    points: number
+};
+
+const login = async (data : LoginData) => await request.post(endpoints.login, data);
+
+const register = async (data: RegisterData) => await request.post(endpoints.register, data);
+
+const logout = async (user : User) => await request.get(endpoints.logout, null, user);
+
+const updatePoints = async (user: User, points: PointsData) => await request.put(endpoints.points + user._id, points, user);
+
+export {
+    login,
+    register,
+    logout,
+    updatePoints
 }

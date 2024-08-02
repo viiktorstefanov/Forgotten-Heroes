@@ -1,11 +1,20 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema({
-  googleId: { type: String, required: true },
-  points: { type: Number, default: 0, required: true }
+    email: { type: String, required: [true, 'Email is missing'], minlength: [9, 'Email should be at least 9 characters long'], unique: [true, 'Email address is already taken']  }, 
+    hashedPassword: { type: String, required: true },
+    firstName: { type: String, required: [true, 'First name is missing'] },
+    points: { type: Number, default: 0}
 });
 
-const User = mongoose.model('User', userSchema);
+userSchema.index({ email: 1 }, {
+    unique: true,
+    collation: {
+        locale: 'en',
+        strength: 2
+    }
+});
+
+const User = model('User', userSchema);
 
 module.exports = User;

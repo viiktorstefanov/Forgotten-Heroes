@@ -1,13 +1,19 @@
 import axios, { AxiosRequestConfig } from 'axios';
+import { LoginData, PointsData, RegisterData, User } from './AuthService';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-const request = async (method: string, url: string, data?: any) => {
+const request = async (method: string, url: string, data?: PointsData | LoginData | RegisterData | null, user?: User) => {
   const options: AxiosRequestConfig = {
     method,
     url: `${apiUrl}${url}`,
     headers: {},
   };
+
+  if(user) {
+    options.headers!['F-Authorization'] = JSON.stringify(user.accessToken);
+    options.headers!.user = JSON.stringify(user);
+  }
 
   if (data !== undefined) {
     options.headers!["Content-Type"] = "application/json";
