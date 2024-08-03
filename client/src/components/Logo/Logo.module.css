@@ -1,0 +1,16 @@
+.nav-bar-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Cactus Classical Serif", serif;
+    font-weight: 400;
+    font-style: normal; 
+    cursor: pointer;
+}
+
+.nav-bar-logo h1 {
+    font-size: 3rem;
+    text-align: center;
+    padding: 2rem 0 3rem 0;
+    color: #f3d22d;
+}

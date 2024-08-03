@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../store';
-import { login , register, logout } from './authThunks';
+import { login , register, logout, updatePoints } from './authThunks';
 import { User } from '../../services/AuthService';
 import { clearLocalStorage, setLocalStorage } from '../../services/LocalStorageService';
+import notification from '../../services/Notification';
 
 type AuthState = {
   user: User | null,
@@ -47,6 +47,21 @@ const authSlice = createSlice({
     .addCase(login.rejected, (state, action) => {
       state.status = 'failed';
       state.error = action.payload as string;
+      //handle if not have action.payload to send unable to connect server
+    })
+    .addCase(register.pending, (state) => {
+      state.status = 'loading';
+    })
+    .addCase(register.fulfilled, (state, action: PayloadAction<User>) => {
+      state.status = 'succeeded';
+      state.user = action.payload;
+      state.isAuthenticated = true;
+      setLocalStorage(state.user)
+    })
+    .addCase(register.rejected, (state, action) => {
+      state.status = 'failed';
+      state.error = action.payload as string;
+      //handle if not have action.payload to send unable to connect server
     })
     .addCase(logout.pending, (state) => {
       state.status = 'loading';
@@ -59,10 +74,22 @@ const authSlice = createSlice({
     })
     .addCase(logout.rejected, (state, action) => {
       state.status = 'failed';
-      console.log(action.payload);
-      
       state.error = action.payload as string;
-    });
+       //handle if not have action.payload to send unable to connect server
+    })
+    .addCase(updatePoints.pending, (state) => {
+      state.status = 'loading';
+    })
+    .addCase(updatePoints.fulfilled, (state, action: PayloadAction<User>) => {
+      state.status = 'succeeded';
+      state.user = action.payload;
+      setLocalStorage(state.user)
+    })
+    .addCase(updatePoints.rejected, (state, action) => {
+      state.status = 'failed';
+      state.error = action.payload as string;
+      //handle if not have action.payload to send unable to connect server
+    })
   }
 });
 

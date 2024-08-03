@@ -98,6 +98,21 @@ async function getUserById(id) {
     return User.findById(id);
 };
 
+async function updateUserPoints(userId, points) {
+
+    const user = await User.findById(userId);
+
+    if (!user) {
+        throw new Error('User not found');
+    }
+
+    user.points += Number(points);
+
+    const updatedUser = await user.save();
+
+    return updatedUser; 
+};
+
 module.exports = {
     register,
     login,
@@ -105,4 +120,5 @@ module.exports = {
     parseToken,
     getUserById,
     isTokenBlacklisted,
+    updateUserPoints
 }

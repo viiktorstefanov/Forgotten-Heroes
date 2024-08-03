@@ -1,0 +1,15 @@
+.nav-bar-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Sofia-Sans, sans-serif;
+    font-size: 1.5rem;
+    gap: 5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 8rem;
+}
+
+
+.nav-bar-item {
+    text-transform: uppercase;
+}

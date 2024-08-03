@@ -1,4 +1,4 @@
-const { register, login, logout } = require('../services/userService');
+const { register, login, logout, updateUserPoints } = require('../services/userService');
 const { body, validationResult } = require('express-validator');
 const { parseError } = require('../utils/parseError');
 const { isGuest, hasUser } = require('../middlewares/guards');
@@ -48,7 +48,6 @@ authController.post('/login', isGuest(), async(req, res) => {
 authController.get('/logout', hasUser(), async(req, res) => {
     try {
         const user = JSON.parse(req.headers.user);
-        
         const accessToken = req.headers.authorization?.split(' ')[1];
         await logout(accessToken);
         console.log(`${user.email} has signed out.`);
@@ -64,11 +63,12 @@ authController.get('/logout', hasUser(), async(req, res) => {
     }
 });
 
-authController.put('/points/:userId', isGuest(), async(req, res) => {
+authController.put('/points/:userId', async(req, res) => {
     try {
-        const userWithTokens = await login(req.body.email, req.body.password);
-        res.json(userWithTokens).end();
-        console.log(`${req.body.email} has successfully signed in.`);
+        const user = JSON.parse(req.headers.user);
+        const updatedUser = await updateUserPoints(req.params.userId, req.body.points);
+        res.json(updatedUser).end();
+        console.log(`${user.email}'s points increased with ${req.body.points}.`);
     } catch (error) {
         const message = parseError(error);
     console.log(message);

@@ -39,11 +39,11 @@ export type PointsData = {
 
 const login = async (data : LoginData): Promise<User> => await request.post(endpoints.login, data);
 
-const register = async (data: RegisterData) => await request.post(endpoints.register, data);
+const register = async (data: RegisterData): Promise<User> => await request.post(endpoints.register, data);
 
 const logout = async (user : User) => await request.get(endpoints.logout, null, user);
 
-const updatePoints = async (user: User, points: PointsData) => await request.put(endpoints.points + user._id, points, user);
+const updatePoints = async (user: User, points: PointsData): Promise<User> => await request.put(endpoints.points + user._id, points, user);
 
 export {
     login,

@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout } from '../../state/auth/authThunks';
+import { login, logout, updatePoints } from '../../state/auth/authThunks';
 import { AppDispatch, RootState } from "../../state/store";
 
 const Login: React.FC = () => {
@@ -43,6 +43,16 @@ const Login: React.FC = () => {
       dispatch(logout(user));
     }
   }
+
+  const onSubmitPoints = async (e: FormEvent) => {
+    const points = {
+      points: 5
+    }
+    e.preventDefault();
+    if(user) {
+      dispatch(updatePoints({user, points}));
+    }
+  }
  
   return (
     <form onSubmit={onSubmit}>
@@ -50,6 +60,7 @@ const Login: React.FC = () => {
       <input type="text" name="password" value={form.password} onChange={onChange}/>
       <button type="submit">submit</button>
       <button type="button" onClick={onSubmitLogout}>logout</button>
+      <button type="button" onClick={onSubmitPoints}>points</button>
     </form>
   );
 
