@@ -23,6 +23,9 @@ const NavBar: React.FC = () => {
       <Link className={styles["nav-bar-item"]} to="/rank">
         КЛАСАЦИЯ
       </Link>
+      <Link className={styles["nav-bar-item"]} to="/rules">
+        ПРАВИЛА
+      </Link>
       {!isAuthenticated && (
         <Link className={styles["nav-bar-item"]} to="/login">
           ВХОД

@@ -1,0 +1,33 @@
+.email-input, .password-input {
+    margin-left: 0rem;
+    font-size: 1.3rem;
+    padding-left: 0.5rem;
+}
+
+.label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.label-text {
+    width: 8rem;
+}
+
+.row-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error {
+    width: 100%;
+    color: #f01818;
+    font-size: 1rem;
+    text-align: end;
+    font-family: "Cactus Classical Serif", serif;
+    letter-spacing: 1px;
+    margin-top: 0.9rem;
+}
+

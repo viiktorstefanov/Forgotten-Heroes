@@ -8,6 +8,7 @@ import Heroes from "./components/Heroes/Heroes";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Logout from "./components/Logout/Logout";
+import Rules from "./components/Rules/Rules";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const AppRoutes: React.FC = () => {
         <Route path="/game" element={<Game />} />
         <Route path="/heroes" element={<Heroes />} />
         <Route path="/rank" element={<Rank />} />
+        <Route path="/rules" element={<Rules />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />

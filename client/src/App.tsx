@@ -25,7 +25,6 @@ const App: React.FC = () => {
     dispatch(setUser({user}));
   };
 
-
   return (
       <main className='app-container'>
         <Loader />

@@ -1,74 +1,16 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { login, logout, updatePoints } from '../../state/auth/authThunks';
-import { AppDispatch, RootState } from "../../state/store";
+import React from "react";
+import LoginForm from "../LoginForm/LoginForm";
+import NotMemberContainer from "../NotMemberContainer/NotMemberContainer";
+
+import styles from './Login.module.css';
 
 const Login: React.FC = () => {
-  const user = useSelector((state: RootState) => state.auth.user);
-
-  const dispatch = useDispatch<AppDispatch>();
-
-  type FormState = {
-    email: string;
-    password: string;
-  }
-  
-  const [form, setForm] = useState<FormState>({
-    email: '',
-    password: ''
-  });
-
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setForm((prevForm: FormState) => ({ ...prevForm, [name]: value }));
-  };
-
-
-  const onSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-  
-
-    const data = { 
-      email: form.email,
-      password: form.password,
-    }
-    
-    
-    dispatch(login(data));
-  };
-
-  const onSubmitLogout = async (e: FormEvent) => {
-    e.preventDefault();
-    if(user) {
-      dispatch(logout(user));
-    }
-  }
-
-  const onSubmitPoints = async (e: FormEvent) => {
-    const points = {
-      points: 5
-    }
-    e.preventDefault();
-    if(user) {
-      dispatch(updatePoints({user, points}));
-    }
-  }
- 
   return (
-    <form onSubmit={onSubmit}>
-      <input type="text" name="email" value={form.email} onChange={onChange}/>
-      <input type="text" name="password" value={form.password} onChange={onChange}/>
-      <button type="submit">submit</button>
-      <button type="button" onClick={onSubmitLogout}>logout</button>
-      <button type="button" onClick={onSubmitPoints}>points</button>
-    </form>
+    <section className={styles['login-container']}>
+      <LoginForm />
+      <NotMemberContainer />
+    </section>
   );
-
- 
 };
-
-
-
-
 
 export default Login;

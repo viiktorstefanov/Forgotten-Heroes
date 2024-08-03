@@ -1,0 +1,25 @@
+.not-member-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.not-member-container h2 {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+.not-member-container a {
+    font-size: 1.3rem;
+}
+
+.reg-btn {
+    color: #f3d22d;
+    margin-top: 1rem;
+}
+
+.reg-btn:hover {
+    opacity: 0.8;
+}
