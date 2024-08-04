@@ -18,7 +18,7 @@ const NavBar: React.FC = () => {
         ИГРАЙ
       </Link>
       <Link className={styles["nav-bar-item"]} to="/heroes">
-        ГЕРОИ
+        ЛИЧНОСТИ
       </Link>
       <Link className={styles["nav-bar-item"]} to="/rank">
         КЛАСАЦИЯ

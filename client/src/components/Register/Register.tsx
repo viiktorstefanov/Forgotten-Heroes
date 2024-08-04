@@ -1,14 +1,13 @@
 import React from "react";
+import styles from './Register.module.css';
+import RegisterForm from "../RegisterForm/RegisterForm";
 
 const Register: React.FC = () => {
  
   return (
-    <form>
-      <input type="text" name="email"/>
-      <input type="text" name="password" />
-      <input type="text" name="firstName" />
-      <button type="submit">submit</button>
-    </form>
+    <section className={styles['register-container']}>
+        <RegisterForm />
+    </section>
   );
 };
 
