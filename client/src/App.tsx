@@ -16,6 +16,10 @@ import Loader from './components/Loader/Loader';
 import Logo from './components/Logo/Logo';
 import NavBarBorder from './components/NavBarBorder/NavBarBorder';
 import NavBar from './components/NavBar/NavBar';
+import FooterBorder from './components/FooterBorder/FooterBorder';
+import FooterBox from './components/FooterBox/FooterBox';
+import CopyrightMessage from './components/CopyrightMessage/CopyrightMessage';
+import CopyrightOwner from './components/CopyrightOwner/CopyrightOwner';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -35,7 +39,13 @@ const App: React.FC = () => {
           <NavBar />
         </Header>
         <AppRoutes />
-        <Footer />
+        <Footer>
+          <FooterBorder />
+          <FooterBox>
+            <CopyrightMessage />
+            <CopyrightOwner />
+          </FooterBox>
+        </Footer>
       </main>
   )
 };

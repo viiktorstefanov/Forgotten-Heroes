@@ -1,14 +1,9 @@
 .footer-container {
-    padding-top: 1.5rem;
-    width: 100%;
-    font-size: 1.2rem;
-}
-
-.footer-border {
-    border-top: 5px solid #f3d22d;
-    border-radius: 6px;
-}
-
-.footer-box {
-    padding-top: 1.5rem;
+  width: 100%;
+  font-size: 1.2rem;
+  padding-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

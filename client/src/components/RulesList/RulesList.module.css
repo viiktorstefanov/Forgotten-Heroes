@@ -1,8 +1,9 @@
-.rules-container {
+.rules-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 900px;
-    text-align: justify;
+    gap: 2rem;
+    font-size: 1.1rem;
+    margin-top: 3rem;
 }
