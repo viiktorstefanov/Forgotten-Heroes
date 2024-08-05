@@ -1,7 +1,17 @@
-import React from 'react';
+import React from "react";
+import styles from "./Rank.module.css";
+import RankTable from "../RankTable/RankTable";
+import RankHeader from "../RankHeader/RankHeader";
 
 const Rank: React.FC = () => {
-  return <h1>RANK PAGE</h1>;
+  return (
+    <section className={styles["rank-container"]}>
+      <RankHeader>
+        Класация по точки
+      </RankHeader>
+      <RankTable />
+    </section>
+  );
 };
 
 export default Rank;

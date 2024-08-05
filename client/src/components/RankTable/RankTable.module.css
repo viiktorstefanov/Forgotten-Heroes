@@ -1,0 +1,10 @@
+.rank-table {
+    font-family: "Cactus Classical Serif", serif;
+    width: 100%;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 6px;
+    counter-reset: row-num;
+    margin-top: 3rem;
+  }

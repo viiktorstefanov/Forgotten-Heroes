@@ -31,14 +31,18 @@ const App: React.FC = () => {
 
   return (
       <main className='app-container'>
+        
         <Loader />
         <ToastContainer  />
+
         <Header>
           <Logo />
           <NavBarBorder />
           <NavBar />
         </Header>
+
         <AppRoutes />
+
         <Footer>
           <FooterBorder />
           <FooterBox>
@@ -46,6 +50,7 @@ const App: React.FC = () => {
             <CopyrightOwner />
           </FooterBox>
         </Footer>
+        
       </main>
   )
 };

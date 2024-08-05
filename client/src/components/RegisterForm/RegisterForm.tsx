@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 const registerSchema = Yup.object().shape({
     email: Yup.string().matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, 'Невалиден имейл').required("Невалиден имейл"),
     password: Yup.string().min(6, "Минимум 6 символа").required("Невалидна парола"),
-    firstName: Yup.string().required("Попълнете своето име")
+    username: Yup.string().required("Попълнете своя прякор")
   });
 
 const RegisterForm: React.FC = () => {
@@ -23,7 +23,7 @@ const RegisterForm: React.FC = () => {
 
   return (
     <Formik
-        initialValues={{ email: "", firstName: "", password: "", }}
+        initialValues={{ email: "", username: "", password: "", }}
         validationSchema={registerSchema}
         onSubmit={(credentials) => {
           dispatch(register(credentials));
@@ -35,7 +35,7 @@ const RegisterForm: React.FC = () => {
             
             <FormRow name="email"  type="email" inputClass="" divErrorClass="error" labelText="ИМЕЙЛ:" errors={errors} touched={touched} />
 
-            <FormRow name="firstName"  type="text" inputClass="" divErrorClass="error" labelText="ИМЕ:" errors={errors} touched={touched} />
+            <FormRow name="username"  type="text" inputClass="" divErrorClass="error" labelText="ПРЯКОР:" errors={errors} touched={touched} />
 
             <FormRow name="password"  type="password" inputClass="" divErrorClass="error" labelText="ПАРОЛА:" errors={errors} touched={touched} />
 

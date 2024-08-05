@@ -1,0 +1,48 @@
+.rank-table-tr {
+    margin-top: 5px;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    color: #000;
+    background-color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+    position: relative;
+    padding-left: 0.3rem;
+  }
+  
+  .rank-table-tr span:nth-child(1) {
+    display: flex;
+    margin-left: 30px; 
+  }
+  
+  .rank-table-tr:nth-child(odd) {
+    background-color: #e4cf62;
+  }
+  
+  .rank-table-tr::before {
+    content: counter(row-num) ".";
+    counter-increment: row-num;
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+  }
+
+  .table-tr-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .table-tr-points {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .user-icon, .points-icon {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+    color: #000;
+  }

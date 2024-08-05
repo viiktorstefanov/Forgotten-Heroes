@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styles from './RulesHeader.module.css';
 
-const RulesHeader: React.FC = () => {
+type RulesHeaderProps = {
+  children: ReactNode
+};
+
+const RulesHeader: React.FC<RulesHeaderProps> = ( { children }) => {
   return (
-    <h2 className={styles['rules-header']}>Правила за ползване</h2>
+    <h2 className={styles['rules-header']}>{children}</h2>
   )
 }
 

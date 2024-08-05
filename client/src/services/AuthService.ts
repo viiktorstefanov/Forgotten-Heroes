@@ -10,7 +10,7 @@ const endpoints = {
 export type User = {
     _id: string,
     email: string,
-    firstName: string,
+    username: string,
     points: number,
     accessToken: string,
     refreshToken: string,
@@ -19,7 +19,7 @@ export type User = {
 export type UserRegister = {
     email: string,
     password: string,
-    firstName: string,
+    username: string,
 };
 
 export type LoginData = {
@@ -30,7 +30,7 @@ export type LoginData = {
 export type RegisterData = {
     email: string,
     password: string,
-    firstName: string,
+    username: string,
 };
 
 export type PointsData = {

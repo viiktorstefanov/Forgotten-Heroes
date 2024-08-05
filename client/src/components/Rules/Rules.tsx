@@ -6,7 +6,9 @@ import RulesList from "../RulesList/RulesList";
 const Rules: React.FC = () => {
     return (
         <section className={styles['rules-container']}>
-            <RulesHeader />
+            <RulesHeader>
+                Правила за ползване
+            </RulesHeader>
             <RulesList />
         </section>
     )

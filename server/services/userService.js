@@ -8,7 +8,7 @@ const secret = process.env.SECRET;
 
 const tokenBlackList = new Set();
 
-async function register(email, password, firstName) {
+async function register(email, password, username) {
     const existing = await User.findOne({ email }).collation({ locale: 'en', strength: 2 });
 
     if (existing) {
@@ -20,7 +20,7 @@ async function register(email, password, firstName) {
     const user = await User.create({
         email,
         hashedPassword,
-        firstName,
+        username,
     });
 
     return createTokens(user);
@@ -57,7 +57,7 @@ function createTokens(user) {
     return {
         _id: user._id,
         email: user.email,
-        firstName: user.firstName,
+        username: user.username,
         points: user.points,
         accessToken,
         refreshToken,
