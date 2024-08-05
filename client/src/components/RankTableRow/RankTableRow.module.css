@@ -11,6 +11,10 @@
     position: relative;
     padding-left: 0.3rem;
   }
+
+  .rank-table-tr:hover {
+    opacity: 0.9;
+  }
   
   .rank-table-tr span:nth-child(1) {
     display: flex;
