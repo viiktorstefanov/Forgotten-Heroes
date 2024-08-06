@@ -9,6 +9,8 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Logout from "./components/Logout/Logout";
 import Rules from "./components/Rules/Rules";
+import Category from "./components/Category/Category";
+import HeroDetails from "./components/HeroDetails/HeroDetails";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -16,6 +18,8 @@ const AppRoutes: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/game" element={<Game />} />
         <Route path="/heroes" element={<Heroes />} />
+        <Route path="/heroes/:heroId" element={<HeroDetails />} />
+        <Route path="/heroes/category/*" element={<Category />} />
         <Route path="/rank" element={<Rank />} />
         <Route path="/rules" element={<Rules />} />
         <Route path="/login" element={<Login />} />

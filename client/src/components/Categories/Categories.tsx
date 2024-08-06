@@ -7,7 +7,15 @@ import CategoryItem from '../CategoryItem/CategoryItem';
 const Categories: React.FC = () => {
   return (
     <div className={styles["category-container"]}>
-        {heroCategories.map(item => <CategoryItem key={item.id} category={item.category} subtitle={item.subtitle} imageUrl={item.imageUrl} route={item.route} />)}
+        {heroCategories.map(item => 
+                    <CategoryItem 
+                        key={item.id} 
+                        category={item.category} 
+                        subtitle={item.subtitle} 
+                        imageUrl={item.imageUrl} 
+                        route={item.route} 
+                    />
+        )}
   </div>
   )
 }

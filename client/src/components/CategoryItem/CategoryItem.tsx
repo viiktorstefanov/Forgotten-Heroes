@@ -12,9 +12,8 @@ type CategoryItemProps = {
 const CategoryItem: React.FC<CategoryItemProps> = ( { category, subtitle, imageUrl, route} ) => {
   return (
     <Link to={route} className={styles["category-item"]}>
-
           <div className={styles['category-item-img']}>
-            <img src={imageUrl} alt="no-img" />
+            <img src={imageUrl} alt={category} loading="lazy"/>
           </div>
           <div className={styles['category-item-header']}>
             <h2>{category}</h2>

@@ -1,0 +1,55 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { HeroByCategory, Hero } from '../../services/HeroService';
+import { getHeroes, getHero } from './heroThunks';
+import notification from '../../services/Notification';
+
+type HeroState = {
+  heroes: HeroByCategory[] | null,
+  hero: Hero | null,
+  status: 'idle' | 'loading' | 'succeeded' | 'failed',
+  error: string | null,
+};
+
+const initialState: HeroState = {
+  heroes: null,
+  hero: null,
+  status: 'idle',
+  error: null,
+};
+
+const heroSlice = createSlice({
+  name: 'hero',
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+    .addCase(getHeroes.pending, (state) => {
+      state.status = 'loading';
+    })
+    .addCase(getHeroes.fulfilled, (state, action: PayloadAction<HeroByCategory[]>) => {
+      state.status = 'succeeded';
+      state.heroes = action.payload;
+    })
+    .addCase(getHeroes.rejected, (state, action) => {
+      state.heroes = null;
+      state.status = 'failed';
+      state.error = action.payload as string;
+      //handle if not have action.payload to send unable to connect server
+    })
+    .addCase(getHero.pending, (state) => {
+      state.status = 'loading';
+    })
+    .addCase(getHero.fulfilled, (state, action: PayloadAction<Hero>) => {
+      state.status = 'succeeded';
+      state.hero = action.payload;
+    })
+    .addCase(getHero.rejected, (state, action) => {
+      state.hero = null;
+      state.status = 'failed';
+      state.error = action.payload as string;
+      //handle if not have action.payload to send unable to connect server
+    })
+  }
+});
+
+export default heroSlice.reducer;

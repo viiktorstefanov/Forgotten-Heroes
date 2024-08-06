@@ -5,7 +5,7 @@ import { tableHeaders } from '../../constants/table';
 const RankTableHead: React.FC = () => {
   return (
     <div className={styles["rank-table-tr-head"]}>
-        {tableHeaders.map(item => <span>{item.header}</span>)}
+        {tableHeaders.map(item => <span key={item.id}>{item.header}</span>)}
     </div>
   )
 }
