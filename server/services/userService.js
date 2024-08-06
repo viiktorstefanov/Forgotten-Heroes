@@ -113,6 +113,12 @@ async function updateUserPoints(userId, points) {
     return updatedUser; 
 };
 
+async function getAllUsersPoints() {
+    const users = await User.find({}, 'username points');
+    
+    return users;
+}
+
 module.exports = {
     register,
     login,
@@ -120,5 +126,6 @@ module.exports = {
     parseToken,
     getUserById,
     isTokenBlacklisted,
-    updateUserPoints
+    updateUserPoints,
+    getAllUsersPoints
 }

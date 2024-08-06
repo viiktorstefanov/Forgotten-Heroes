@@ -1,4 +1,4 @@
-const { register, login, logout, updateUserPoints } = require('../services/userService');
+const { register, login, logout, updateUserPoints, getAllUsersPoints } = require('../services/userService');
 const { body, validationResult } = require('express-validator');
 const { parseError } = require('../utils/parseError');
 const { isGuest, hasUser } = require('../middlewares/guards');
@@ -77,6 +77,22 @@ authController.put('/points/:userId', async(req, res) => {
       return res.status(400).json({ message: errors }).end();
     }
     res.status(400).json({ message }).end();
+    }
+});
+
+authController.get('/points', async(req, res) => {
+    try {
+        const users = await getAllUsersPoints();
+        res.json(users).end();
+        console.log(`All users points were send.`);
+    } catch (error) {
+        const message = parseError(error);
+        console.log(message);
+        if (message.includes("\n")) {
+          const errors = message.split("\n");
+          return res.status(400).json({ message: errors }).end();
+        }
+        res.status(400).json({ message }).end();
     }
 });
 
