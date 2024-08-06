@@ -1,14 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { login , register, logout, updatePoints } from './authThunks';
+import { login , register, logout, updatePoints, getPoints } from './authThunks';
 import { User } from '../../services/AuthService';
 import { clearLocalStorage, setLocalStorage } from '../../services/LocalStorageService';
 import notification from '../../services/Notification';
+import { UserPointsData } from '../../services/AuthService';
 
 type AuthState = {
   user: User | null,
   status: 'idle' | 'loading' | 'succeeded' | 'failed',
   error: string | null,
   isAuthenticated: boolean,
+  usersPoints: UserPointsData[] | null;
 };
 
 const initialState: AuthState = {
@@ -16,6 +18,7 @@ const initialState: AuthState = {
   status: 'idle',
   error: null,
   isAuthenticated: false,
+  usersPoints: null,
 };
 
 const authSlice = createSlice({
@@ -89,6 +92,18 @@ const authSlice = createSlice({
       state.status = 'failed';
       state.error = action.payload as string;
       //handle if not have action.payload to send unable to connect server
+    })
+    .addCase(getPoints.pending, (state) => {
+      state.status = 'loading';
+    })
+    .addCase(getPoints.fulfilled, (state, action: PayloadAction<UserPointsData[]>) => {
+      state.status = 'succeeded';
+      state.usersPoints = action.payload;
+    })
+    .addCase(getPoints.rejected, (state, action) => {
+      state.status = 'failed';
+      state.error = action.payload as string;
+       //handle if not have action.payload to send unable to connect server
     })
   }
 });

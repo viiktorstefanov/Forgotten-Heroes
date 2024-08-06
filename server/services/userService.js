@@ -114,7 +114,7 @@ async function updateUserPoints(userId, points) {
 };
 
 async function getAllUsersPoints() {
-    const users = await User.find({}, 'username points');
+    const users = await User.find({}, 'username points').sort({ points: -1 });
     
     return users;
 }

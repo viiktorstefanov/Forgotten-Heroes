@@ -37,6 +37,12 @@ export type PointsData = {
     points: number
 };
 
+export type UserPointsData = {
+    username: string,
+    points: number,
+    _id: string,
+}
+
 const login = async (data : LoginData): Promise<User> => await request.post(endpoints.login, data);
 
 const register = async (data: RegisterData): Promise<User> => await request.post(endpoints.register, data);
@@ -45,9 +51,12 @@ const logout = async (user : User) => await request.get(endpoints.logout, null, 
 
 const updatePoints = async (user: User, points: PointsData): Promise<User> => await request.put(endpoints.points + user._id, points, user);
 
+const getUserPoints = async () : Promise<UserPointsData[]> => await request.get(endpoints.points, null);
+
 export {
     login,
     register,
     logout,
-    updatePoints
+    updatePoints,
+    getUserPoints
 }

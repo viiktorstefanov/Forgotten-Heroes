@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as authApi from '../../services/AuthService';
-import { LoginData, User, RegisterData, PointsData } from '../../services/AuthService';
+import { LoginData, User, RegisterData, PointsData, UserPointsData } from '../../services/AuthService';
 
 export const login = createAsyncThunk<User, LoginData>(
     'auth/login',
@@ -42,6 +42,18 @@ export const login = createAsyncThunk<User, LoginData>(
     async ({user, points}, { rejectWithValue }) => {
       try {
         const response = await authApi.updatePoints(user, points);
+        return response;
+      } catch (error: any) {
+        return rejectWithValue(error.response.data);
+      }
+    }
+  );
+
+  export const getPoints = createAsyncThunk<UserPointsData[], void, { rejectValue: any }>(
+    'auth/points',
+    async (_, { rejectWithValue }) => {
+      try {
+        const response = await authApi.getUserPoints();
         return response;
       } catch (error: any) {
         return rejectWithValue(error.response.data);
