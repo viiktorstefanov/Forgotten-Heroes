@@ -29,7 +29,7 @@ const LoginForm: React.FC = () => {
           navigate('/');
         }}
       >
-        {({ errors, touched, isValid }) => (
+         {({ errors, touched, isValid }) => (
           <Form className={styles['form-container']}>
             
             <FormRow name="email"  type="email" inputClass="" divErrorClass="error" labelText="ИМЕЙЛ:" errors={errors} touched={touched} />
@@ -39,8 +39,8 @@ const LoginForm: React.FC = () => {
             <FormButton type="submit" text="ВХОД" buttonClass="login-btn" disabled={!isValid}/>
           
           </Form>
-        )}
-      </Formik>
+         )}
+        </Formik>
     )
 };
 
