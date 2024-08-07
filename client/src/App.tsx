@@ -14,9 +14,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from './components/Loader/Loader';
 import Logo from './components/Logo/Logo';
-import NavBarBorder from './components/NavBarBorder/NavBarBorder';
 import NavBar from './components/NavBar/NavBar';
-import FooterBorder from './components/FooterBorder/FooterBorder';
+import Border from './components/Border/Border';
 import FooterBox from './components/FooterBox/FooterBox';
 import CopyrightMessage from './components/CopyrightMessage/CopyrightMessage';
 import CopyrightOwner from './components/CopyrightOwner/CopyrightOwner';
@@ -37,14 +36,14 @@ const App: React.FC = () => {
 
         <Header>
           <Logo />
-          <NavBarBorder />
+          <Border />
           <NavBar />
         </Header>
 
         <AppRoutes />
 
         <Footer>
-          <FooterBorder />
+          <Border />
           <FooterBox>
             <CopyrightMessage />
             <CopyrightOwner />

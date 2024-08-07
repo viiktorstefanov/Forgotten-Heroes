@@ -1,0 +1,17 @@
+.normal-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(45deg, #f3d22d, #ff9800);
+    background-size: 200%;
+    color: #000;
+    font-size: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.normal-button:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}

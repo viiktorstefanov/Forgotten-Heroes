@@ -1,27 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif:wght@400;700&display=swap');
+
 .feature {
   display: flex;
   align-items: center;
-  margin-top: 20px;
-  animation: slideInLeft 1s ease-in-out;
-}
-.feature img {
-  width: 250px;
-  height: auto;
-  margin-right: 20px;
-  border-radius: 10px;
-}
-.feature div {
-  max-width: 600px;
-  text-align: left;
-  align-self: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 7rem;
 }
 
-.feature div h2 {
-    text-align: center;
-    color: #f3d22d;
+.header {
+  font-family: "Cactus Classical Serif", serif;
+  color: #f3d22d;
+  font-size: 1.7rem;
+  margin-top: 7rem;
+  margin-bottom: 7rem;
 }
 
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-20px); }
-    to { opacity: 1; transform: translateX(0); }
+.body img {
+  width: 350px;
+  border-radius: 8px;
 }
+
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body img {
+  margin-right: 5rem;
+}
+
+.body-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.body-info-header {
+  margin-bottom: 3rem;
+}
+
+.body-info-subtitle {
+  font-family: "Cactus Classical Serif", serif;
+  font-size: 1.3rem;
+  margin-bottom: 3rem;
+}
+

@@ -1,7 +1,7 @@
 export const NewsData = {
-    imageUrl: "/assets/images/knqz-boris.png",
+    imageUrl: "/assets/images/animated_question.png",
     title: "Последни новини",
     text: "Добавихме нови въпроси за средновековната история!",
-    buttonText: "Провери знанията си сега",
+    buttonText: "Провери знанията си",
     buttonRoute: "/game"
 };
