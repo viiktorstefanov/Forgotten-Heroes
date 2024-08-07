@@ -1,0 +1,27 @@
+.feature {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  animation: slideInLeft 1s ease-in-out;
+}
+.feature img {
+  width: 250px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+.feature div {
+  max-width: 600px;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.feature div h2 {
+    text-align: center;
+    color: #f3d22d;
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}

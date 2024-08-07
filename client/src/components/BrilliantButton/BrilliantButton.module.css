@@ -1,0 +1,81 @@
+.brilliant-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(45deg, #f3d22d, #ff9800);
+    background-size: 200%;
+    color: #000;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    animation: buttonFadeIn 2s ease-in-out, shimmer 3s infinite linear;
+}
+
+@keyframes buttonFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.brilliant-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    transition: transform 0.5s;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: -1;
+}
+
+.brilliant-button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.5s;
+}
+
+.brilliant-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75px;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.5s;
+    z-index: 1;
+    animation: shine 1.5s infinite ease-in-out;
+}
+
+@keyframes shine {
+    0% {
+        left: -75px;
+    }
+    100% {
+        left: 125%;
+    }
+}
+
+.brilliant-button:hover {
+    cursor: pointer;
+}
+
+.brilliant-button:active {
+    transform: scale(0.95);
+}

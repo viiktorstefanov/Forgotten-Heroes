@@ -1,3 +1,9 @@
-.test {
-    font-size: 4rem;
+.home-container {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

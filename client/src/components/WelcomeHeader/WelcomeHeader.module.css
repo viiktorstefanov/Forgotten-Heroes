@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif:wght@400;700&display=swap');
+
+.header {
+    margin-bottom: 3rem;
+    font-family: "Cactus Classical Serif", serif;
+    color: #f3d22d;
+    animation: textSlideIn 1.5s ease-in-out;
+    font-size: 1.4rem;
+}
+
+@keyframes textSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
