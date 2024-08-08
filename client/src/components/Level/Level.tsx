@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLockOpen, faStar } from '@fortawesome/free-solid-svg-icons';
 
 type LevelProps = {
-    label: string,
+    label: number,
     requiredPoints: number,
     userPoints: number
 }

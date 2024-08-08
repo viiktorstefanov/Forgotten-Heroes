@@ -1,8 +1,8 @@
-const { register, login, logout, updateUserPoints, getAllUsersPoints } = require('../services/userService');
+const { register, login, logout, updateUserPoints, getAllUsersPoints, getUserById } = require('../services/userService');
 const { body, validationResult } = require('express-validator');
 const { parseError } = require('../utils/parseError');
 const { isGuest, hasUser } = require('../middlewares/guards');
-const { registerFirstLevelUser } = require('../services/levelService');
+const { registerUserInAllLevels } = require('../services/levelService');
 
 const authController = require('express').Router();
 
@@ -17,7 +17,7 @@ authController.post('/register',
                 throw errors;
             }
             const userWithTokens = await register(req.body.email, req.body.password, req.body.username);
-            await registerFirstLevelUser(userWithTokens._id);
+            await registerUserInAllLevels(userWithTokens._id);
             res.json(userWithTokens).end();
             console.log(`User ${req.body.email} successfully registered.`);
         } catch (error) {
@@ -87,6 +87,30 @@ authController.get('/points', async(req, res) => {
         const users = await getAllUsersPoints();
         res.json(users).end();
         console.log(`All users points were send.`);
+    } catch (error) {
+        const message = parseError(error);
+        console.log(message);
+        if (message.includes("\n")) {
+          const errors = message.split("\n");
+          return res.status(400).json({ message: errors }).end();
+        }
+        res.status(400).json({ message }).end();
+    }
+});
+
+authController.get('/points/:userId', async(req, res) => {
+    try {
+        const userId = req.params.userId;
+        const user = await getUserById(userId);
+
+        const userWithPoints = {
+            username: user.username,
+            points: user.points,
+            _id: user._id
+        };
+
+        res.json(userWithPoints).end();
+        console.log(`User points were send.`);
     } catch (error) {
         const message = parseError(error);
         console.log(message);

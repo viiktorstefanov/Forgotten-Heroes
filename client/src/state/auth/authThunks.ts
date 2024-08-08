@@ -53,7 +53,19 @@ export const login = createAsyncThunk<User, LoginData>(
     'auth/points',
     async (_, { rejectWithValue }) => {
       try {
-        const response = await authApi.getUserPoints();
+        const response = await authApi.getUsersPoints();
+        return response;
+      } catch (error: any) {
+        return rejectWithValue(error.response.data);
+      }
+    }
+  );
+
+  export const getUserPoints = createAsyncThunk<UserPointsData, string>(
+    'auth/points/user',
+    async (userId, { rejectWithValue }) => {
+      try {
+        const response = await authApi.getUserPoints(userId);
         return response;
       } catch (error: any) {
         return rejectWithValue(error.response.data);

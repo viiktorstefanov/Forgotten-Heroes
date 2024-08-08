@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from './auth/authSlice';
 import heroReducer from './hero/heroSlice';
+import levelsReducer from './levels/levelsSlice';
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
     hero: heroReducer,
+    levels: levelsReducer,
   },
 });
 

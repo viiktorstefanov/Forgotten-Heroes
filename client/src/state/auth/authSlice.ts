@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { login , register, logout, updatePoints, getPoints } from './authThunks';
+import { login , register, logout, updatePoints, getPoints, getUserPoints } from './authThunks';
 import { User } from '../../services/AuthService';
 import { clearLocalStorage, setLocalStorage } from '../../services/LocalStorageService';
 import notification from '../../services/Notification';
@@ -101,6 +101,18 @@ const authSlice = createSlice({
       state.usersPoints = action.payload;
     })
     .addCase(getPoints.rejected, (state, action) => {
+      state.status = 'failed';
+      state.error = action.payload as string;
+       //handle if not have action.payload to send unable to connect server
+    })
+    .addCase(getUserPoints.pending, (state) => {
+      state.status = 'loading';
+    })
+    .addCase(getUserPoints.fulfilled, (state, action: PayloadAction<UserPointsData>) => {
+      state.status = 'succeeded';
+      state.user!.points = action.payload.points;
+    })
+    .addCase(getUserPoints.rejected, (state, action) => {
       state.status = 'failed';
       state.error = action.payload as string;
        //handle if not have action.payload to send unable to connect server

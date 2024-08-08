@@ -51,12 +51,15 @@ const logout = async (user : User) => await request.get(endpoints.logout, null, 
 
 const updatePoints = async (user: User, points: PointsData): Promise<User> => await request.put(endpoints.points + user._id, points, user);
 
-const getUserPoints = async () : Promise<UserPointsData[]> => await request.get(endpoints.points, null);
+const getUsersPoints = async () : Promise<UserPointsData[]> => await request.get(endpoints.points, null);
+
+const getUserPoints = async (userId: string) : Promise<UserPointsData> => await request.get(endpoints.points + userId, null)
 
 export {
     login,
     register,
     logout,
     updatePoints,
+    getUsersPoints,
     getUserPoints
 }

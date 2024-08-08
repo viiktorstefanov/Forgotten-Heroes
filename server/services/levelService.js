@@ -21,24 +21,30 @@ async function getUserLevels(userId) {
         return {
             levelNumber: level.levelNumber,
             requiredPoints: level.requiredPoints,
-            score: userScore ? userScore.score : 0
+            score: userScore ? userScore.score : 0,
+            _id: level._id
         };
     });
 
     return userLevels;
 };
 
-async function registerFirstLevelUser(userId) {
-    const firstLevel = await Level.findOne({ levelNumber: 1 });
+async function registerUserInAllLevels(userId) {
 
-    firstLevel.users.push({
-        userId: userId,
-        score: 0
-    });
+    for (let levelNumber = 1; levelNumber <= 32; levelNumber++) {
+  
+        const level = await Level.findOne({ levelNumber });
 
-    await firstLevel.save();
+        if (level) {
 
-    console.log('User successfully registered for the first level.');
+            level.users.push({
+                userId: userId,
+                score: 0
+            });
+
+            await level.save();
+        } 
+    }
 }
 
 
@@ -46,5 +52,5 @@ async function registerFirstLevelUser(userId) {
 module.exports = {
     createLevel,
     getUserLevels,
-    registerFirstLevelUser
+    registerUserInAllLevels
 }

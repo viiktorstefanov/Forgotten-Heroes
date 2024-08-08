@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faStar } from '@fortawesome/free-solid-svg-icons';
 
 type LockedLevelPorps = {
-    label: string,
+    label: number,
     requiredPoints: number
 }
 

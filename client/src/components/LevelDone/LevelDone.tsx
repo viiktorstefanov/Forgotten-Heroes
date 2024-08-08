@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faStar } from '@fortawesome/free-solid-svg-icons';
 
 type LevelDoneProps = {
-    label: string,
+    label: number,
     requiredPoints: number,
     userPoints: number
 }
