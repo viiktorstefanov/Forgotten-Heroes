@@ -11,12 +11,13 @@ import Logout from "./components/Logout/Logout";
 import Rules from "./components/Rules/Rules";
 import Category from "./components/Category/Category";
 import HeroDetails from "./components/HeroDetails/HeroDetails";
+import AuthRoute from "./guards/authGuard";
 
 const AppRoutes: React.FC = () => {
   return (
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/game" element={<Game />} />
+        <Route path="/game" element={<AuthRoute element={<Game />} />} />
         <Route path="/heroes" element={<Heroes />} />
         <Route path="/heroes/:heroId" element={<HeroDetails />} />
         <Route path="/heroes/category/*" element={<Category />} />
