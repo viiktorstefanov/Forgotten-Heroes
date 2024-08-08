@@ -22,6 +22,7 @@ const HeroBox: React.FC<HeroBoxProps> = ( { hero }) => {
         <p className={styles["hero-additional-text"]}>
           {hero?.historyAdditional}
         </p>
+        <p className={styles['hero-quote']}>{hero?.quote}</p>
       </div>
   )
 }

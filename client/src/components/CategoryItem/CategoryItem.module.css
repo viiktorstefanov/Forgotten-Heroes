@@ -13,14 +13,9 @@
     opacity: 0.8;
 }
 
-.category-item-header,
-.category-item-subtitle {
+.category-item-header {
     margin-top: 0.5rem;
     color: #f3d22d; 
-}
-
-.category-item-subtitle h4 {
-    font-weight: unset;
 }
 
 .category-item-img {

@@ -13,7 +13,8 @@ const heroSchema = new Schema({
   dateBirth: { type: String, required: true},
   dateDeath: { type: String, required: true},
   historyMain: { type: String, required: true},
-  historyAdditional: { type: String, required: true}
+  historyAdditional: { type: String, required: true},
+  quote: { type: String, required: true}
 });
 
 const Hero = mongoose.model('Hero', heroSchema);

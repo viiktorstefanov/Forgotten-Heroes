@@ -10,8 +10,7 @@ const Categories: React.FC = () => {
         {heroCategories.map(item => 
                     <CategoryItem 
                         key={item.id} 
-                        category={item.category} 
-                        subtitle={item.subtitle} 
+                        category={item.category}
                         imageUrl={item.imageUrl} 
                         route={item.route} 
                     />

@@ -25,3 +25,15 @@ import { HeroByCategory, Hero } from '../../services/HeroService';
       }
     }
   );
+
+  export const getRandomHero = createAsyncThunk<Hero, void, { rejectValue: any }>(
+    'hero/random',
+    async (_, { rejectWithValue }) => {
+      try {
+        const response = await heroApi.getRandomHero();
+        return response;
+      } catch (error: any) {
+        return rejectWithValue(error.response.data);
+      }
+    }
+  );

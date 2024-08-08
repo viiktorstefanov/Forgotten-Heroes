@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { HeroByCategory, Hero } from '../../services/HeroService';
-import { getHeroes, getHero } from './heroThunks';
+import { getHeroes, getHero, getRandomHero } from './heroThunks';
 import notification from '../../services/Notification';
 
 type HeroState = {
@@ -8,6 +8,7 @@ type HeroState = {
   hero: Hero | null,
   status: 'idle' | 'loading' | 'succeeded' | 'failed',
   error: string | null,
+  random: Hero | null,
 };
 
 const initialState: HeroState = {
@@ -15,6 +16,7 @@ const initialState: HeroState = {
   hero: null,
   status: 'idle',
   error: null,
+  random : null,
 };
 
 const heroSlice = createSlice({
@@ -45,6 +47,19 @@ const heroSlice = createSlice({
     })
     .addCase(getHero.rejected, (state, action) => {
       state.hero = null;
+      state.status = 'failed';
+      state.error = action.payload as string;
+      //handle if not have action.payload to send unable to connect server
+    })
+    .addCase(getRandomHero.pending, (state) => {
+      state.status = 'loading';
+    })
+    .addCase(getRandomHero.fulfilled, (state, action: PayloadAction<Hero>) => {
+      state.status = 'succeeded';
+      state.random = action.payload;
+    })
+    .addCase(getRandomHero.rejected, (state, action) => {
+      state.random = null;
       state.status = 'failed';
       state.error = action.payload as string;
       //handle if not have action.payload to send unable to connect server

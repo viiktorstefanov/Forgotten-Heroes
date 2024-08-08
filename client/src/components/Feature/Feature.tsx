@@ -7,7 +7,7 @@ interface FeatureProps {
   imageUrl: string;
   header: string;
   personName: string;
-  subtitle: string;
+  quote: string;
   buttonText: string;
   buttonRoute: string;
 }
@@ -16,7 +16,7 @@ const Feature: React.FC<FeatureProps> = ({
   imageUrl,
   header,
   personName,
-  subtitle,
+  quote,
   buttonText,
   buttonRoute,
 }) => {
@@ -26,7 +26,7 @@ const Feature: React.FC<FeatureProps> = ({
       <div className={styles["body"]}>
         <div className={styles['body-info']}>
           <h1 className={styles['body-info-header']}>{personName}</h1>
-          <p className={styles['body-info-subtitle']}>{subtitle}</p>
+          <p className={styles['body-info-subtitle']}>{quote}</p>
           <Button route={buttonRoute} text={buttonText} />
         </div>
         <img src={imageUrl} alt={personName} />

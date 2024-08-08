@@ -2,6 +2,7 @@ import request from './Request';
 
 const endpoints = {
     hero: '/heroes',
+    random: '/heroes/random'
 };
 
 export type Hero = {
@@ -14,6 +15,7 @@ export type Hero = {
     dateDeath: string,
     historyMain: string,
     historyAdditional: string,
+    quote: string,
 };
 
 export type HeroByCategory = {
@@ -26,7 +28,10 @@ const getCategoryHeroes = async (category: string) => await request.get(endpoint
 
 const getHeroById = async (heroId: string) => await request.get(endpoints.hero + `/${heroId}`, null);
 
+const getRandomHero = async () => await request.get(endpoints.random, null);
+
 export {
     getCategoryHeroes,
-    getHeroById
+    getHeroById,
+    getRandomHero
 }

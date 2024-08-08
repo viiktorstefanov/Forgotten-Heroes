@@ -7,7 +7,7 @@ type RuleProps = {
 
 const Rule: React.FC<RuleProps> = ( { rule} ) => {
   return (
-    <li><span>{rule}</span></li>
+    <li className={styles['row']}><span>{rule}</span></li>
   )
 }
 

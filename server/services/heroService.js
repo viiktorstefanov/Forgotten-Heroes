@@ -11,7 +11,7 @@ async function getHero(heroId) {
     return hero;
 };
 
-async function createHero(title, imageUrl, category, dateBirth, dateDeath, historyMain, historyAdditional) {
+async function createHero(title, imageUrl, category, dateBirth, dateDeath, historyMain, historyAdditional, quote) {
     const hero = await Hero.create({
         title,
         imageUrl,
@@ -19,7 +19,8 @@ async function createHero(title, imageUrl, category, dateBirth, dateDeath, histo
         dateBirth,
         dateDeath,
         historyMain,
-        historyAdditional
+        historyAdditional,
+        quote
     });
     
     return hero;
@@ -43,10 +44,21 @@ async function getHeroes(category) {
     return filteredHeroes;
 }
 
+async function getRandomHero() {
+    const count = await Hero.countDocuments().exec();
+
+    const randomIndex = Math.floor(Math.random() * count);
+
+    const hero = await Hero.findOne().skip(randomIndex).exec();
+
+    return hero;
+};
+
 
 
 module.exports = {
     getHero,
     createHero,
-    getHeroes
+    getHeroes,
+    getRandomHero
 }

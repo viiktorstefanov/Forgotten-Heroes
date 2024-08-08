@@ -7,6 +7,7 @@ import Border from '../Border/Border';
 import { FeatureData } from '../../constants/feature';
 
 const Features: React.FC = () => {
+
   return (
     <div className={styles['features-container']}>
         <Border />
@@ -14,7 +15,7 @@ const Features: React.FC = () => {
            imageUrl={FeatureData.imageUrl}
            header={FeatureData.header}
            personName={FeatureData.personName}
-           subtitle={FeatureData.subtitle}
+           quote={FeatureData.quote}
            buttonText={FeatureData.buttonText}
            buttonRoute={FeatureData.buttonRoute}
         />
