@@ -2,7 +2,7 @@ export const levels = [
     {
         id: 'L0000001',
         label: '1',
-        requiredPoints: 0,
+        requiredPoints: 10,
     },
     {
         id: 'L0000002',

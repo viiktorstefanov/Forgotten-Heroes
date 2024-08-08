@@ -1,0 +1,31 @@
+.level-done-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid #f3d22d;
+    border-radius: 6px;
+    height: 300px;
+    padding: 2rem 1rem;
+    color: #f3d22d;
+}
+
+.done-icon {
+    font-size: 4rem;
+}
+
+.points-icon {
+    color: #fff;
+}
+
+.points-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.points-wrapper span {
+    font-size: 1.2rem;
+}

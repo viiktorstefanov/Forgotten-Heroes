@@ -2,6 +2,7 @@ const { register, login, logout, updateUserPoints, getAllUsersPoints } = require
 const { body, validationResult } = require('express-validator');
 const { parseError } = require('../utils/parseError');
 const { isGuest, hasUser } = require('../middlewares/guards');
+const { registerFirstLevelUser } = require('../services/levelService');
 
 const authController = require('express').Router();
 
@@ -16,6 +17,7 @@ authController.post('/register',
                 throw errors;
             }
             const userWithTokens = await register(req.body.email, req.body.password, req.body.username);
+            await registerFirstLevelUser(userWithTokens._id);
             res.json(userWithTokens).end();
             console.log(`User ${req.body.email} successfully registered.`);
         } catch (error) {

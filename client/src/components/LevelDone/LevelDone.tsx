@@ -1,20 +1,20 @@
 import React from 'react';
-import styles from './Level.module.css';
+import styles from './LevelDone.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLockOpen, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faStar } from '@fortawesome/free-solid-svg-icons';
 
-type LevelProps = {
+type LevelDoneProps = {
     label: string,
     requiredPoints: number,
     userPoints: number
 }
 
-const Level: React.FC<LevelProps> = ( { label, requiredPoints, userPoints } ) => {
+const LevelDone: React.FC<LevelDoneProps> = ( { label, requiredPoints, userPoints }) => {
   return (
-    <div className={styles['level-container']}>
+    <div className={styles['level-done-container']}>
        <h2>{label} НИВО</h2>
-         <FontAwesomeIcon className={styles['unlock-icon']} icon={faLockOpen} />
+         <FontAwesomeIcon className={styles['done-icon']} icon={faCheck} />
          <div className={styles['points-wrapper']}>
             <span>Точки:</span>
             <span><FontAwesomeIcon className={styles['points-icon']} icon={faStar} /> {userPoints} / {requiredPoints} </span>
@@ -23,4 +23,4 @@ const Level: React.FC<LevelProps> = ( { label, requiredPoints, userPoints } ) =>
   )
 }
 
-export default Level;
+export default LevelDone;
