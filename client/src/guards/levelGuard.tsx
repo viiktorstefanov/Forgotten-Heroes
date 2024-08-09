@@ -9,9 +9,11 @@ type LevelRouteProps = {
 
 const LevelRoute: React.FC<LevelRouteProps> = ({ element }) => {
   const { levelNumber } = useParams();
+  
   const location = useLocation();
 
   const levels = useSelector((state: RootState) => state.levels.levels);
+  
   const userPoints = useSelector((state: RootState) => state.auth.user?.points);
 
   const currentLevel = levels?.find(level => level.levelNumber === +levelNumber!);
@@ -19,7 +21,11 @@ const LevelRoute: React.FC<LevelRouteProps> = ({ element }) => {
     
   const haveEnoughPoints = userPoints! >= requiredPoints! ? true : false;
 
-  
+  if(!haveEnoughPoints) {
+    alert("Нямаш достатъчно точки");
+    
+  }
+
   return haveEnoughPoints ? element : <Navigate to="/game" state={{ from: location }} />;
 };
 

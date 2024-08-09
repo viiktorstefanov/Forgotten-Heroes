@@ -19,8 +19,19 @@ const AppRoutes: React.FC = () => {
   return (
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/game" element={<AuthRoute element={<Game />} />} />
-        <Route path="/game/level/:levelNumber" element={<LevelRoute element={<PlayGame />} />} />
+        
+        <Route
+          path="/game/*"
+          element={
+            <AuthRoute>
+              <Routes>
+                <Route path="/" element={<Game />} />
+                <Route path="level/:levelNumber" element={<LevelRoute element={<PlayGame />} />} />
+              </Routes>
+            </AuthRoute>
+          }
+        />
+
         <Route path="/heroes" element={<Heroes />} />
         <Route path="/heroes/:heroId" element={<HeroDetails />} />
         <Route path="/heroes/category/*" element={<Category />} />
