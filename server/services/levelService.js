@@ -2,10 +2,11 @@ const Hero = require("../models/Hero");
 const Question = require("../models/Question");
 const Level = require("../models/Level");
 
-async function createLevel(levelNumber, requiredPoints) {
+async function createLevel(levelNumber, requiredPoints, winPoints) {
     const level = await Level.create({
        levelNumber,
-       requiredPoints
+       requiredPoints,
+       winPoints
     });
     
     return level;
@@ -21,6 +22,7 @@ async function getUserLevels(userId) {
         return {
             levelNumber: level.levelNumber,
             requiredPoints: level.requiredPoints,
+            winPoints: level.winPoints,
             score: userScore ? userScore.score : 0,
             _id: level._id
         };

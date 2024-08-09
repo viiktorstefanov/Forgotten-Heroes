@@ -4,7 +4,7 @@ const { parseError } = require('../utils/parseError');
 
 levelController.post('/', async(req, res) => {
     try {
-      const level = await createLevel(req.body.levelNumber, req.body.requiredPoints);
+      const level = await createLevel(req.body.levelNumber, req.body.requiredPoints, req.body.winPoints);
 
       res.json(level).end();
       

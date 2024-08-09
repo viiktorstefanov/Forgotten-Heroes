@@ -7,12 +7,14 @@ import { faLock, faStar } from '@fortawesome/free-solid-svg-icons';
 
 type LockedLevelPorps = {
     label: number,
-    requiredPoints: number
+    requiredPoints: number,
+    winPoints: number,
 }
 
-const LockedLevel: React.FC<LockedLevelPorps> = ( { label, requiredPoints } ) => {
+const LockedLevel: React.FC<LockedLevelPorps> = ( { label, requiredPoints, winPoints } ) => {
+  const tooltipMessage = `НЯМАШ ДОСТАТЪЧНО ТОЧКИ, ТРЯБВА ДА ПРЕМИНЕШ УСПЕШНО ${label-1} НИВО`;
   return (
-    <div className={styles['locked-level-container']} data-tooltip-id="locked" data-tooltip-content="НЯМАШ ДОСТАТЪЧНО ТОЧКИ">
+    <div className={styles['locked-level-container']} data-tooltip-id="locked" data-tooltip-content={tooltipMessage}>
         <Tooltip id="locked" />
         <h2>{label} НИВО</h2>
          <FontAwesomeIcon className={styles['lock-icon']} icon={faLock} />

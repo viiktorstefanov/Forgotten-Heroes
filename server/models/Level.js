@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 const levelSchema = new Schema({
   levelNumber: { type: Number, required: true },
   requiredPoints: { type: Number, required: true },
+  winPoints: { type: Number, required: true},
   users: [
     {
       userId: { type: Schema.Types.ObjectId, ref: "User", required: true },

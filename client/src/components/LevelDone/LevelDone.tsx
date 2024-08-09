@@ -1,25 +1,31 @@
 import React from 'react';
 import styles from './LevelDone.module.css';
+import { Tooltip } from 'react-tooltip'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faStar } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 type LevelDoneProps = {
     label: number,
     requiredPoints: number,
-    userPoints: number
+    winPoints: number,
 }
 
-const LevelDone: React.FC<LevelDoneProps> = ( { label, requiredPoints, userPoints }) => {
+const LevelDone: React.FC<LevelDoneProps> = ( { label, requiredPoints, winPoints  }) => {
+  const tooltipMessage = `НАТИСНИ, ЗА ДА ЗАПОЧНЕШ ОТНОВО НИВО ${label}`;
   return (
-    <div className={styles['level-done-container']}>
-       <h2>{label} НИВО</h2>
-         <FontAwesomeIcon className={styles['done-icon']} icon={faCheck} />
-         <div className={styles['points-wrapper']}>
+    <Link to={`/game/level/${label}`}>
+      <div className={styles['level-done-container']} data-tooltip-id="done" data-tooltip-content={tooltipMessage}>
+        <Tooltip id="done" />
+        <h2>{label} НИВО</h2>
+          <FontAwesomeIcon className={styles['done-icon']} icon={faCheck} />
+          <div className={styles['points-wrapper']}>
             <span>Точки:</span>
-            <span><FontAwesomeIcon className={styles['points-icon']} icon={faStar} /> {userPoints} / {requiredPoints} </span>
-         </div>
-    </div>
+            <span><FontAwesomeIcon className={styles['points-icon']} icon={faStar} /> {winPoints} </span>
+          </div>
+      </div>
+    </Link>
   )
 }
 

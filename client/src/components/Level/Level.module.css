@@ -10,6 +10,10 @@
     color: #f3d22d;
 }
 
+.level-container:hover {
+    cursor: pointer;
+}
+
 .unlock-icon {
     font-size: 4rem;
 }
