@@ -19,10 +19,8 @@ const AppRoutes: React.FC = () => {
   return (
       <Routes>
         <Route path="/" element={<Home />} />
-        
-        <Route
-          path="/game/*"
-          element={
+
+        <Route path="/game/*" element={
             <AuthRoute>
               <Routes>
                 <Route path="/" element={<Game />} />

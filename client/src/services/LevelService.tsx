@@ -24,6 +24,7 @@ const renderFirstLevel = (level: Level) => {
           label={level.levelNumber}
           requiredPoints={level.requiredPoints}
           winPoints={level.winPoints}
+          userScore={level.score}
           key={level._id}
         />
       );
@@ -48,6 +49,7 @@ const renderFirstLevel = (level: Level) => {
             label={level.levelNumber}
             requiredPoints={level.requiredPoints}
             winPoints={level.winPoints}
+            userScore={level.score}
             key={level._id}
           />
         );

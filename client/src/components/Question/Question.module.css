@@ -1,7 +1,7 @@
-.playgame-container {
+.question-container {
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 900px;
-    width: 100%;
+    align-items: center;
 }

@@ -1,0 +1,17 @@
+.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #f3d22d;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  width: 450px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.option:hover {
+  background-color: #f3d22d;
+  color: #000;
+  cursor: pointer;
+}

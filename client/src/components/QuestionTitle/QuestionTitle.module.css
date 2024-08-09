@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif:wght@400;700&display=swap');
+
+.question {
+    font-size: 1.5rem;
+    margin-bottom: 5rem;
+    font-family: "Cactus Classical Serif", serif;
+}

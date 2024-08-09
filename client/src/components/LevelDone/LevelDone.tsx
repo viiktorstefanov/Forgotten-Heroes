@@ -10,9 +10,10 @@ type LevelDoneProps = {
     label: number,
     requiredPoints: number,
     winPoints: number,
+    userScore: number
 }
 
-const LevelDone: React.FC<LevelDoneProps> = ( { label, requiredPoints, winPoints  }) => {
+const LevelDone: React.FC<LevelDoneProps> = ( { label, requiredPoints, winPoints, userScore  }) => {
   const tooltipMessage = `НАТИСНИ, ЗА ДА ЗАПОЧНЕШ ОТНОВО НИВО ${label}`;
   return (
     <Link to={`/game/level/${label}`}>
@@ -22,7 +23,7 @@ const LevelDone: React.FC<LevelDoneProps> = ( { label, requiredPoints, winPoints
           <FontAwesomeIcon className={styles['done-icon']} icon={faCheck} />
           <div className={styles['points-wrapper']}>
             <span>Точки:</span>
-            <span><FontAwesomeIcon className={styles['points-icon']} icon={faStar} /> {winPoints} </span>
+            <span><FontAwesomeIcon className={styles['points-icon']} icon={faStar} /> {userScore} / {winPoints} </span>
           </div>
       </div>
     </Link>
