@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 
 const PlayGame: React.FC = () => {
 
-    const { levelId } = useParams();
+    const { levelNumber } = useParams();
 
   return (
     <div>
