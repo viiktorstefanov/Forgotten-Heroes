@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { app } from "../../constants/app";
 
 const Logo: React.FC = () => {
+
   return (
     <div className={styles["nav-bar-logo"]}>
       <Link to="/">
