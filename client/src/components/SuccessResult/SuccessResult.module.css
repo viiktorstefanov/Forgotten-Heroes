@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif:wght@400;700&display=swap');
+
+.success-result-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.points-icon {
+    color: #f3d22d;
+}
+
+.greetings {
+    color: #f3d22d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.greetings .emoticon {
+    font-size: 10rem;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+}
+
+.points {
+    margin-top: 2rem;
+}
+
+.routes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10rem;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.left-arrow, .right-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Cactus Classical Serif", serif;
+}
+
+.next-level {
+    margin-right: 0.5rem;
+}
+
+.back {
+    margin-left: 0.5rem;
+}
+ 
+.results-header {
+    width: 100%;
+}
+

@@ -37,7 +37,7 @@ export const login = createAsyncThunk<User, LoginData>(
     }
   );
 
-  export const updatePoints = createAsyncThunk<User, { user: User, points: PointsData }>(
+  export const updatePoints = createAsyncThunk<User, { user: User, points: PointsData}>(
     'auth/update',
     async ({user, points}, { rejectWithValue }) => {
       try {

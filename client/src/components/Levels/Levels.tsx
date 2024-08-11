@@ -6,6 +6,7 @@ import { AppDispatch, RootState } from '../../state/store';
 import { getLevels } from "../../state/levels/levelsThunks";
 import { getUserPoints } from '../../state/auth/authThunks';
 import { renderFirstLevel, renderOtherLevels } from '../../services/LevelService';
+import { resetCurrentLevel } from '../../state/questions/questionsSlice';
 
 const Levels: React.FC = () => {
 
@@ -17,8 +18,9 @@ const Levels: React.FC = () => {
     if (userId) {
       dispatch(getUserPoints(userId));
       dispatch(getLevels({ userId }));
+      dispatch(resetCurrentLevel());
     }
-  }, [userId, dispatch]);
+  }, []);
 
   const levels = useSelector((state: RootState) => state.levels.levels);
   const user = useSelector((state: RootState) => state.auth.user)!; 
@@ -33,5 +35,6 @@ const Levels: React.FC = () => {
     </div>
   )
 }
+
 
 export default Levels;

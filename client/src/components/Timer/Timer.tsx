@@ -2,18 +2,21 @@ import React, { useState } from 'react';
 import styles from './Timer.module.css';
 
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../state/store';
+import { saveResult } from '../../state/questions/questionsSlice';
+import { Question } from '../../services/QuestionService';
 
 type TimerProps = {
   duration: number;
   onComplete: () => void;
+  restart: number,
+  question: Question
 }
 
-const Timer: React.FC<TimerProps> = ({ duration, onComplete }) => {
-  const [key, setKey] = useState(0);
-
-  const restartTimer = () => {
-    setKey(prevKey => prevKey + 1);
-  };
+const Timer: React.FC<TimerProps> = ({ duration, onComplete, restart, question }) => {
+  
+  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <div className={styles['timer-container']}>
@@ -21,14 +24,18 @@ const Timer: React.FC<TimerProps> = ({ duration, onComplete }) => {
         size={100}
         strokeWidth={8}
         isSmoothColorTransition={true}
-        key={key}
+        key={restart}
         isPlaying
         duration={duration}
         colors={['#f3d22d', '#F7B801', '#A30000']}
         colorsTime={[10, 5, 0]}
         onComplete={() => {
+          const resultData = {
+            ...question,
+            userChoice: ''
+          };
+          dispatch(saveResult(resultData));
           onComplete(); 
-          restartTimer();
         }}
       >
         {({ remainingTime }) => 

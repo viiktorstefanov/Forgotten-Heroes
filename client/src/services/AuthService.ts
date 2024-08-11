@@ -34,7 +34,8 @@ export type RegisterData = {
 };
 
 export type PointsData = {
-    points: number
+    points: number,
+    levelNumber: number,
 };
 
 export type UserPointsData = {

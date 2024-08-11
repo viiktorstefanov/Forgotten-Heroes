@@ -1,4 +1,3 @@
-const Hero = require("../models/Hero");
 const Question = require("../models/Question");
 const Level = require("../models/Level");
 
@@ -47,6 +46,26 @@ async function registerUserInAllLevels(userId) {
             await level.save();
         } 
     }
+};
+
+async function getLevelQuestions(level) {
+    const questions = await Question.find( { 'level': level } );
+
+   return questions; 
+};
+
+async function updateLevelScore(userId, levelNumber) {
+
+    const level = await Level.findOne({ 
+        'levelNumber' : levelNumber,
+        'users.userId': userId 
+    });
+
+    const userLevel = level.users.find(user => user.userId.equals(userId));
+    
+    userLevel.score = level.winPoints;
+    
+    await level.save();
 }
 
 
@@ -54,5 +73,7 @@ async function registerUserInAllLevels(userId) {
 module.exports = {
     createLevel,
     getUserLevels,
-    registerUserInAllLevels
+    registerUserInAllLevels,
+    getLevelQuestions,
+    updateLevelScore
 }

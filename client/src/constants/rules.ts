@@ -21,3 +21,5 @@ export const rules = [
     },
 
 ]
+
+export const rulesHeader = 'Правила за ползване';

@@ -68,7 +68,7 @@ authController.get('/logout', hasUser(), async(req, res) => {
 authController.put('/points/:userId', async(req, res) => {
     try {
         const user = JSON.parse(req.headers.user);
-        const updatedUser = await updateUserPoints(req.params.userId, req.body.points);
+        const updatedUser = await updateUserPoints(req.params.userId, req.body.points, req.body.levelNumber);
         res.json(updatedUser).end();
         console.log(`${user.email}'s points increased with ${req.body.points}.`);
     } catch (error) {

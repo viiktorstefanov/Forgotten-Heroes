@@ -14,6 +14,7 @@ import HeroDetails from "./components/HeroDetails/HeroDetails";
 import AuthRoute from "./guards/authGuard";
 import PlayGame from "./components/PlayGame/PlayGame";
 import LevelRoute from "./guards/levelGuard";
+import GameResult from "./components/GameResult/GameResult";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const AppRoutes: React.FC = () => {
               <Routes>
                 <Route path="/" element={<Game />} />
                 <Route path="level/:levelNumber" element={<LevelRoute element={<PlayGame />} />} />
+                <Route path="result" element={<GameResult />} />
               </Routes>
             </AuthRoute>
           }

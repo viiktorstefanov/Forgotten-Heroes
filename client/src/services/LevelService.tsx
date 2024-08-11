@@ -21,21 +21,15 @@ const renderFirstLevel = (level: Level) => {
     if (level.score >= level.winPoints) {
       return (
         <LevelDone
-          label={level.levelNumber}
-          requiredPoints={level.requiredPoints}
-          winPoints={level.winPoints}
-          userScore={level.score}
+          level={level}
           key={level._id}
         />
       );
     } else {
       return (
         <Level
-          label={level.levelNumber}
-          requiredPoints={level.requiredPoints}
-          winPoints={level.winPoints}
+          level={level}
           key={level._id}
-          userScore={level.score}
         />
       );
     }
@@ -46,21 +40,15 @@ const renderFirstLevel = (level: Level) => {
       if (level.requiredPoints < userPoints) {
         return (
           <LevelDone
-            label={level.levelNumber}
-            requiredPoints={level.requiredPoints}
-            winPoints={level.winPoints}
-            userScore={level.score}
+           level={level}
             key={level._id}
           />
         );
       } else {
         return (
           <Level
-            label={level.levelNumber}
-            requiredPoints={level.requiredPoints}
-            winPoints={level.winPoints}
+            level={level}
             key={level._id}
-            userScore={level.score}
           />
         );
       }

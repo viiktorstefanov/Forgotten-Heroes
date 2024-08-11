@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { copyrights } from '../../constants/copyrights';
 
 const CopyrightMessage: React.FC = () => {
   return (
-    <p>All rights reserved.</p>
+    <p>{copyrights.copyrightMessage}</p>
   )
 }
 

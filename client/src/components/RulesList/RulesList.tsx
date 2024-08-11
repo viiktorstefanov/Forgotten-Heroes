@@ -8,7 +8,7 @@ const RulesList: React.FC = () => {
   return (
     <ol className={styles['rules-list']}>
         {rules.map((rule) => (
-                    <Rule key={rule.id} rule={rule.rule} />
+            <Rule key={rule.id} rule={rule.rule} />
         ))}
     </ol>
   )

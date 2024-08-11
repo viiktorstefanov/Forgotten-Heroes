@@ -5,6 +5,8 @@ import { Tooltip } from 'react-tooltip'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faStar } from '@fortawesome/free-solid-svg-icons';
 
+import { levelsTooltips } from '../../constants/levelsTooltips';
+
 type LockedLevelPorps = {
     label: number,
     requiredPoints: number,
@@ -12,9 +14,8 @@ type LockedLevelPorps = {
 }
 
 const LockedLevel: React.FC<LockedLevelPorps> = ( { label, requiredPoints, winPoints } ) => {
-  const tooltipMessage = `НЯМАШ ДОСТАТЪЧНО ТОЧКИ, ТРЯБВА ДА ПРЕМИНЕШ УСПЕШНО ${label-1} НИВО`;
   return (
-    <div className={styles['locked-level-container']} data-tooltip-id="locked" data-tooltip-content={tooltipMessage}>
+    <div className={styles['locked-level-container']} data-tooltip-id="locked" data-tooltip-content={levelsTooltips.lockedLevel}>
         <Tooltip id="locked" />
         <h2>{label} НИВО</h2>
          <FontAwesomeIcon className={styles['lock-icon']} icon={faLock} />

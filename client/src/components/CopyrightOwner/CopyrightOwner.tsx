@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from "react-router-dom";;
+import { Link } from "react-router-dom";import { copyrights } from '../../constants/copyrights';
+;
 
 const CopyrightOwner: React.FC = () => {
 
@@ -8,8 +9,8 @@ const CopyrightOwner: React.FC = () => {
   return (
     <p>
           &copy; {currentYear} Copyright:{" "}
-          <Link className="footer-link" target="_blank" to="https://www.linkedin.com/in/viktorstefanov">
-            Viktor Stefanov
+          <Link className="footer-link" target="_blank" to={copyrights.linkedInUrl}>
+            {copyrights.owner}
           </Link>
     </p>
   )

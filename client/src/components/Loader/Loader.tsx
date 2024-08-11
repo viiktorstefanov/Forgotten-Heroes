@@ -14,10 +14,14 @@ const override: CSSProperties = {
 };
 
 const Loader: React.FC = () => {
-  const status = useSelector((state: RootState) => state.auth.status);
+  const authStatus = useSelector((state: RootState) => state.auth.status);
+  const heroStatus = useSelector((state: RootState) => state.hero.status);
+  const levelStatus = useSelector((state: RootState) => state.levels.status);
+  const questionStatus = useSelector((state: RootState) => state.questions.status);
+
   return (
     <> 
-    {status === 'loading' && 
+    {(authStatus || heroStatus || levelStatus || questionStatus) === 'loading' && 
     <div className={styles["overlay"]}>
         <PacmanLoader
           color={"#f3d22d"}

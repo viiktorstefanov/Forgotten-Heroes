@@ -4,6 +4,7 @@ const User = require("../models/user");
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { updateLevelScore } = require('./levelService');
 const secret = process.env.SECRET;
 
 const tokenBlackList = new Set();
@@ -98,7 +99,7 @@ async function getUserById(id) {
     return User.findById(id);
 };
 
-async function updateUserPoints(userId, points) {
+async function updateUserPoints(userId, points, levelNumber) {
 
     const user = await User.findById(userId);
 
@@ -109,6 +110,8 @@ async function updateUserPoints(userId, points) {
     user.points += Number(points);
 
     const updatedUser = await user.save();
+
+    await updateLevelScore(userId, levelNumber);
 
     return updatedUser; 
 };

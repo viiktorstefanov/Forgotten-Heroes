@@ -1,19 +1,16 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styles from './Options.module.css';
 
 import Option from '../Option/Option';
 
 type OptionsProps = {
-    options: string[],
+    children: ReactNode
 }
 
-const Options: React.FC<OptionsProps> = ( { options } ) => {
+const Options: React.FC<OptionsProps> = ( { children } ) => {
   return (
     <div className={styles['options']}>
-        <Option option={options[0]}/>
-        <Option option={options[1]}/>
-        <Option option={options[2]}/>
-        <Option option={options[3]}/>
+       {children}
     </div>
   )
 }
