@@ -4,7 +4,7 @@ let id: any;
 
 const notification = {
      info : (message: string, autoClose: any) => toast.info(message, {
-        position: "top-left",
+        position: "top-right",
         autoClose: autoClose || 3000,
         hideProgressBar: false,
         closeOnClick: true,

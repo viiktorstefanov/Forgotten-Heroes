@@ -75,13 +75,13 @@
 
 .question-header {
     margin-bottom: 2rem;
+    text-align: left;
 }
 
 .question-row {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     gap: 1rem;
     width: 100%;
     padding: 1rem 0 1rem 0;
@@ -91,7 +91,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     gap: 1rem;
 }
 
