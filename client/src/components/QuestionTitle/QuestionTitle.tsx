@@ -8,7 +8,7 @@ type QuestionTitleProps = {
 const QuestionTitle: React.FC<QuestionTitleProps> = ( { question } ) => {
   return (
     <div className={styles['question']}>
-            <span>{question} ?</span>
+            <span>{question}?</span>
     </div>
   )
 }

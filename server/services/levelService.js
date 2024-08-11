@@ -49,8 +49,11 @@ async function registerUserInAllLevels(userId) {
 };
 
 async function getLevelQuestions(level) {
-    const questions = await Question.find( { 'level': level } );
-
+    const questions = await Question.aggregate([
+        { $match: { 'level': level } },
+        { $sample: { size: 10 } }         
+    ]);
+    
    return questions; 
 };
 
