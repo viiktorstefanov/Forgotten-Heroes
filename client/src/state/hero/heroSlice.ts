@@ -22,7 +22,11 @@ const initialState: HeroState = {
 const heroSlice = createSlice({
   name: 'hero',
   initialState,
-  reducers: {},
+  reducers: {
+    resetHeroes(state, action: PayloadAction) {
+      state.heroes = null;
+    }
+  },
   extraReducers: (builder) => {
     builder
     .addCase(getHeroes.pending, (state) => {
@@ -66,5 +70,7 @@ const heroSlice = createSlice({
     })
   }
 });
+
+export const { resetHeroes } = heroSlice.actions;
 
 export default heroSlice.reducer;

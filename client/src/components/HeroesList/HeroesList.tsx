@@ -4,6 +4,7 @@ import Hero from "../Hero/Hero";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../state/store";
 import { getHeroes } from "../../state/hero/heroThunks";
+import { resetHeroes } from "../../state/hero/heroSlice";
 
 type HeroesListProps = {
   categoryTitle: string;
@@ -13,6 +14,7 @@ const HeroesList: React.FC<HeroesListProps> = ({ categoryTitle }) => {
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
+        dispatch(resetHeroes());
         dispatch(getHeroes({ category: categoryTitle }));
       }, [categoryTitle, dispatch]);
 
