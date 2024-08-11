@@ -45,7 +45,7 @@ const QuestionSlice = createSlice({
     },
     resetCurrentLevel(state, action: PayloadAction) {
       state.currentLevel = null;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder

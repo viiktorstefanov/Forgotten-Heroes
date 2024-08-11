@@ -1,8 +1,6 @@
 import React, { ReactNode } from 'react';
 import styles from './Options.module.css';
 
-import Option from '../Option/Option';
-
 type OptionsProps = {
     children: ReactNode
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Timer.module.css';
 
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
@@ -11,7 +11,7 @@ type TimerProps = {
   duration: number;
   onComplete: () => void;
   restart: number,
-  question: Question
+  question: Question,
 }
 
 const Timer: React.FC<TimerProps> = ({ duration, onComplete, restart, question }) => {

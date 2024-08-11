@@ -22,11 +22,11 @@ async function start() {
     app.listen(PORT, () => console.log(`Server is listening on port: ${PORT}`));
 
 
-    // setInterval(() => {
-    //     axios.get(`${HOST}/ping`)
-    //         .then(response => console.log(`Keep-alive ping response: ${response.data}`))
-    //         .catch(err => console.error('Error in keep-alive ping:', err));
-    // }, 14 * 60 * 1000);
+    setInterval(() => {
+        axios.get(`${HOST}/ping`)
+            .then(response => console.log(`Keep-alive ping response: ${response.data}`))
+            .catch(err => console.error('Error in keep-alive ping:', err));
+    }, 14 * 60 * 1000);
 
 }
 

@@ -1,5 +1,5 @@
 import request from './Request';
-import Level from '../components/Level/Level';
+import LevelComponent from '../components/Level/Level';
 import LevelDone from '../components/LevelDone/LevelDone';
 import LockedLevel from '../components/LockedLevel/LockedLevel';
 
@@ -27,7 +27,7 @@ const renderFirstLevel = (level: Level) => {
       );
     } else {
       return (
-        <Level
+        <LevelComponent
           level={level}
           key={level._id}
         />
@@ -46,7 +46,7 @@ const renderFirstLevel = (level: Level) => {
         );
       } else {
         return (
-          <Level
+          <LevelComponent
             level={level}
             key={level._id}
           />
