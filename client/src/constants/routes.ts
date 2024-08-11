@@ -21,7 +21,7 @@ export const routes = [
     }, {
         id: '0000005',
         route: '/rules',
-        label: 'ПРАВИЛА'
+        label: 'УСЛОВИЯ'
     },
     {
         id: '0000006',

@@ -22,4 +22,4 @@ export const rules = [
 
 ]
 
-export const rulesHeader = 'Правила за ползване';
+export const rulesHeader = 'Условия и инструкции';
