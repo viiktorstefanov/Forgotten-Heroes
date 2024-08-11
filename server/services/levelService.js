@@ -49,12 +49,12 @@ async function registerUserInAllLevels(userId) {
 };
 
 async function getLevelQuestions(level) {
-    const questions = await Question.aggregate([
-        { $match: { 'level': level } },
-        { $sample: { size: 10 } }         
-    ]);
-    
-   return questions; 
+    const questions = await Question.find({ level: level });
+
+    const shuffled = questions.sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, 10);
+
+    return selected;
 };
 
 async function updateLevelScore(userId, levelNumber) {
