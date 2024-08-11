@@ -6,28 +6,38 @@ import { AppDispatch, RootState } from '../../state/store';
 
 import { updatePoints } from '../../state/auth/authThunks';
 import SuccessResult from '../SuccessResult/SuccessResult';
+import FailResult from '../FailResult/FailResult';
 
 
 const GameResult: React.FC = () => {
     const user = useSelector((state: RootState) => state.auth.user)!;
     const level = useSelector((state: RootState) => state.questions.currentLevel)!;
+    const result = useSelector((state: RootState) => state.questions.result)!;
+    const numberCorrectAnswer = useSelector((state: RootState) => state.questions.numberCorrectAnswer);
     
     const dispatch = useDispatch<AppDispatch>();
-    const points = {
-        points: level?.winPoints,
-        levelNumber: level.levelNumber,
-    };
+
+    const successful = (numberCorrectAnswer === result?.length);
 
     useEffect(() => {
-        dispatch(updatePoints({ user, points }));
+    
+        if(successful) {
+
+          const points = {
+            points: level?.winPoints,
+            levelNumber: level.levelNumber,
+          };
+
+          dispatch(updatePoints({ user, points }));   
+        }
     }, [])
 
-    const result = useSelector((state: RootState) => state.questions.result);
-    const numberCorrectAnswer = useSelector((state: RootState) => state.questions.numberCorrectAnswer);
+   
 
   return (
     <div className={styles['result-container']}>
-          <SuccessResult numberCorrectAnswer={numberCorrectAnswer!} level={level} numberQuestions={result?.length!}/>
+      {successful && <SuccessResult numberCorrectAnswer={numberCorrectAnswer!} levelNumber={level.levelNumber} numberQuestions={result.length} winPoints={level.winPoints}/>}
+      {!successful && <FailResult numberCorrectAnswer={numberCorrectAnswer!} levelNumber={level.levelNumber} numberQuestions={result.length} result={result} />}
     </div>
   )
 }

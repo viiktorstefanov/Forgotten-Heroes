@@ -9,7 +9,7 @@ type QuestionsState = {
   questions: Question[] | null,
   currentLevel: Level | null,
   result: ResultQuestion[] | null,
-  numberCorrectAnswer: number | null;
+  numberCorrectAnswer: number | null,
   status: 'idle' | 'loading' | 'succeeded' | 'failed',
   error: string | null,
 };

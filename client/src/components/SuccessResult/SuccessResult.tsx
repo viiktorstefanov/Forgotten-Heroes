@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import styles from './SuccessResult.module.css';
 
-
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faFaceGrinStars } from '@fortawesome/free-solid-svg-icons';
-import { Level } from '../../services/LevelService';
 
 import Confetti from "react-confetti";
 import useWindowSize from 'react-use/lib/useWindowSize';
 
+import { successData } from '../../constants/result';
+
 type SuccessResultProps = {
     numberCorrectAnswer: number,
-    level: Level,
+    levelNumber: number,
     numberQuestions: number,
+    winPoints: number,
 }
 
-const SuccessResult: React.FC<SuccessResultProps> = ( { numberCorrectAnswer, level, numberQuestions }) => {
+const SuccessResult: React.FC<SuccessResultProps> = ( { numberCorrectAnswer, levelNumber, numberQuestions, winPoints }) => {
 
     const [showConfetti, setShowConfetti] = useState(true);
     const { width, height } = useWindowSize();
@@ -31,18 +32,18 @@ const SuccessResult: React.FC<SuccessResultProps> = ( { numberCorrectAnswer, lev
   return (
     <div className={styles['success-result-container']}>
         {showConfetti && <Confetti width={width} height={height} />}
-        <div className={styles['greetings']}>
+        <div className={styles['sucess-header']}>
             <FontAwesomeIcon icon={faFaceGrinStars} className={styles['emoticon']}/>
-            <h1>Поздравления</h1>
+            <h1>{successData.header}</h1>
         </div>
         <div className={styles['results']}>
-            <h2>Твоят резултат е:</h2>
-            <h2>{numberCorrectAnswer} от {numberQuestions}</h2>
+            <h2>{successData.resultHeader}</h2>
+            <h2>{numberCorrectAnswer} {successData.resultPointsCompare} {numberQuestions}</h2>
         </div>
-            <h2 className={styles['points']} >Получаваш <FontAwesomeIcon className={styles['points-icon']} icon={faStar}/> {level?.winPoints} точки</h2>
+            <h2 className={styles['points']} >{successData.resultMsgReceive} <FontAwesomeIcon className={styles['points-icon']} icon={faStar}/> {winPoints} {successData.resultMsgPoints}</h2>
         <div className={styles['routes']}>
-            <Link to={'/game'} className={styles['left-arrow']}><span className={styles['back']}>НАЗАД</span></Link>
-            <Link to={`/game/level/${level.levelNumber + 1}`} className={styles['right-arrow']}><span className={styles['next-level']} >СЛЕДВАЩО НИВО</span></Link>
+            <Link to={'/game'} className={styles['left-arrow']}><span className={styles['back']}>{successData.buttonTextBack}</span></Link>
+            <Link to={`/game/level/${levelNumber + 1}`} className={styles['right-arrow']}><span className={styles['next-level']} >{successData.buttonTextNext}</span></Link>
         </div>
     </div>
   )

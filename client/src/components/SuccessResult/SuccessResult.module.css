@@ -12,7 +12,7 @@
     color: #f3d22d;
 }
 
-.greetings {
+.sucess-header {
     color: #f3d22d;
     display: flex;
     flex-direction: column;
@@ -23,7 +23,7 @@
     font-size: 1.5rem;
 }
 
-.greetings .emoticon {
+.sucess-header .emoticon {
     font-size: 10rem;
 }
 
@@ -62,9 +62,5 @@
 
 .back {
     margin-left: 0.5rem;
-}
- 
-.results-header {
-    width: 100%;
 }
 
