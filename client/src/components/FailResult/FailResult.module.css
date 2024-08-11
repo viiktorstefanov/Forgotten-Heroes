@@ -76,6 +76,7 @@
 .question-header {
     margin-bottom: 2rem;
     text-align: left;
+    line-height: 1.7;
 }
 
 .question-row {

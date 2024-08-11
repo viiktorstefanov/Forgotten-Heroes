@@ -35,8 +35,8 @@ const FailResult: React.FC<FailResultProps> = ( { numberCorrectAnswer, levelNumb
                         <h3 className={styles['question-header']}>{`${index+1}.`}{question.question}?</h3>
                         <div className={styles['question-answers']}>
                             {question.userChoice !== question.answer && <>
-                                <span className={`${styles['question-answer']} ${styles['wrong-answer']}`}>{failData.wrongAnswer} {question.userChoice}</span>
                                 <span className={`${styles['question-answer']} ${styles['right-answer']}`}>{failData.rightAnswer} {question.answer}</span>
+                                <span className={`${styles['question-answer']} ${styles['wrong-answer']}`}>{failData.wrongAnswer} {question.userChoice}</span>
                             </>}
                             {question.userChoice === question.answer &&
                                 <span className={`${styles['question-answer']} ${styles['right-answer']}`}>Твоят отговор: {question.userChoice}</span>
