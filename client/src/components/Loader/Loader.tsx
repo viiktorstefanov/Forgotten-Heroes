@@ -19,9 +19,15 @@ const Loader: React.FC = () => {
   const levelStatus = useSelector((state: RootState) => state.levels.status);
   const questionStatus = useSelector((state: RootState) => state.questions.status);
 
+  const isLoading = 
+    authStatus === 'loading' || 
+    heroStatus === 'loading' || 
+    levelStatus === 'loading' || 
+    questionStatus === 'loading';
+
   return (
     <> 
-    {(authStatus || heroStatus || levelStatus || questionStatus) === 'loading' && 
+    {isLoading && 
     <div className={styles["overlay"]}>
         <PacmanLoader
           color={"#f3d22d"}
