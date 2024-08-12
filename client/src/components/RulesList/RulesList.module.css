@@ -2,8 +2,19 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     gap: 2rem;
     font-size: 1.1rem;
     margin-top: 3rem;
+}
+
+.row {
+    line-height: 1.5;
+}
+
+.m-left {
+    margin-left: 2rem;
+}
+
+.m-left-child {
+    margin-left: 3rem
 }
