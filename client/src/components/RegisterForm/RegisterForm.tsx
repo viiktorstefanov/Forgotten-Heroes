@@ -25,7 +25,7 @@ const RegisterForm: React.FC = () => {
     <Formik
         initialValues={{ email: "", username: "", password: "", }}
         validationSchema={registerSchema}
-        onSubmit={(credentials) => {
+        onSubmit={(credentials) => {       
           dispatch(register(credentials));
           navigate('/');
         }}

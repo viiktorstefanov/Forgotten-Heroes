@@ -18,7 +18,11 @@ export const login = createAsyncThunk<User, LoginData>(
     'auth/logout',
     async (user: User, { rejectWithValue }) => {
       try {
-        await authApi.logout(user);
+        const logoutUser = {
+          ...user,
+          username: encodeURIComponent(user.username)
+        };
+        await authApi.logout(logoutUser);
       } catch (error: any) {
         return rejectWithValue(error.response.data);
       }
