@@ -18,7 +18,7 @@ success : (message: string, autoClose: any) => {
     toast.success(message, {
     position: "top-right",
     autoClose: autoClose || 3000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: false,
@@ -40,7 +40,7 @@ success : (message: string, autoClose: any) => {
  error : (message: string, autoClose: any) => toast.error(message, {
     position: "top-right",
     autoClose: autoClose || 3000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: false,

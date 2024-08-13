@@ -15,7 +15,7 @@ const AuthRoute: React.FC<AuthRouteProps> = ({ children }) => {
   if (isAuthenticated) {
     return children;
   } else {
-    notification.info('Играта е достъпна само за регистрирани потребители.', 2000);
+    notification.info('Играта е достъпна само за регистрирани потребители.', 4000);
     return <Navigate to="/login" state={{ from: location }} />;
   }
 };

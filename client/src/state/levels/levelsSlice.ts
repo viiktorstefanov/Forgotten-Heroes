@@ -31,8 +31,12 @@ const levelSlice = createSlice({
     .addCase(getLevels.rejected, (state, action) => {
       state.levels = null;
       state.status = 'failed';
-      state.error = action.payload as string;
-      //handle if not have action.payload to send unable to connect server
+      if(!action.payload) {
+        notification.error('Неуспешно свързване със сървъра.', 3000);
+        return 
+      }
+      
+      state.error = (action.payload as { message: string }).message;
     })
   }
 });

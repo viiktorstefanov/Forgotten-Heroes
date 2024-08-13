@@ -39,8 +39,12 @@ const heroSlice = createSlice({
     .addCase(getHeroes.rejected, (state, action) => {
       state.heroes = null;
       state.status = 'failed';
-      state.error = action.payload as string;
-      //handle if not have action.payload to send unable to connect server
+      if(!action.payload) {
+        notification.error('Неуспешно свързване със сървъра.', 3000);
+        return 
+      }
+      
+      state.error = (action.payload as { message: string }).message;
     })
     .addCase(getHero.pending, (state) => {
       state.status = 'loading';
@@ -52,8 +56,12 @@ const heroSlice = createSlice({
     .addCase(getHero.rejected, (state, action) => {
       state.hero = null;
       state.status = 'failed';
-      state.error = action.payload as string;
-      //handle if not have action.payload to send unable to connect server
+      if(!action.payload) {
+        notification.error('Неуспешно свързване със сървъра.', 3000);
+        return 
+      }
+      
+      state.error = (action.payload as { message: string }).message;
     })
     .addCase(getRandomHero.pending, (state) => {
       state.status = 'loading';
@@ -65,8 +73,12 @@ const heroSlice = createSlice({
     .addCase(getRandomHero.rejected, (state, action) => {
       state.random = null;
       state.status = 'failed';
-      state.error = action.payload as string;
-      //handle if not have action.payload to send unable to connect server
+      if(!action.payload) {
+        notification.error('Неуспешно свързване със сървъра.', 3000);
+        return 
+      }
+      
+      state.error = (action.payload as { message: string }).message;
     })
   }
 });

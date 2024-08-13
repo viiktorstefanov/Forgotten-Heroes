@@ -59,8 +59,12 @@ const QuestionSlice = createSlice({
     .addCase(getLevelQuestions.rejected, (state, action) => {
       state.questions = null;
       state.status = 'failed';
-      state.error = action.payload as string;
-      //handle if not have action.payload to send unable to connect server
+      if(!action.payload) {
+        notification.error('Неуспешно свързване със сървъра.', 3000);
+        return 
+      }
+      
+      state.error = (action.payload as { message: string }).message;
     })
   }
 });
