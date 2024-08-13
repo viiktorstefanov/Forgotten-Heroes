@@ -116,3 +116,7 @@ button {
   to { opacity: 1; }
 }
 
+.Toastify__toast-body {
+  font-family: "Roboto", sans-serif;
+}
+

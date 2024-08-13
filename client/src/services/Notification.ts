@@ -11,41 +11,41 @@ const notification = {
         pauseOnHover: true,
         draggable: false,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
 }),
 
 success : (message: string, autoClose: any) => {
     toast.success(message, {
-    position: "top-left",
+    position: "top-right",
     autoClose: autoClose || 3000,
     hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: false,
     progress: undefined,
-    theme: "light",
+    theme: "dark",
 })},
 
  warning : (message: string, autoClose: any) => toast.warn(message, {
-    position: "top-left",
+    position: "top-right",
     autoClose: 3000 || autoClose,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: false,
     progress: undefined,
-    theme: "light",
+    theme: "dark",
 }),
 
  error : (message: string, autoClose: any) => toast.error(message, {
-    position: "top-left",
+    position: "top-right",
     autoClose: autoClose || 3000,
     hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: false,
     progress: undefined,
-    theme: "light",
+    theme: "dark",
 }),
 
  loading : (message: string) => {

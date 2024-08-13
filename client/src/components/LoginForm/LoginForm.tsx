@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from './LoginForm.module.css';
-import { AppDispatch } from "../../state/store";
-import { useDispatch } from "react-redux";
+import { AppDispatch, RootState } from "../../state/store";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -19,6 +19,13 @@ const LoginForm: React.FC = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
+    const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
+
+    useEffect(() => {
+      if (isAuthenticated) {
+        navigate('/game');
+      }
+    }, [isAuthenticated]);
 
     return (
         <Formik
@@ -26,7 +33,6 @@ const LoginForm: React.FC = () => {
         validationSchema={loginSchema}
         onSubmit={(credentials) => {
           dispatch(login(credentials));
-          navigate('/');
         }}
       >
          {({ errors, touched, isValid }) => (

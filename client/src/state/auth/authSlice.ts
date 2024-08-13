@@ -45,12 +45,22 @@ const authSlice = createSlice({
       state.status = 'succeeded';
       state.user = action.payload;
       state.isAuthenticated = true;
-      setLocalStorage(state.user)
+      setLocalStorage(state.user);
+      notification.success('Успешно влизане', 2000);
     })
     .addCase(login.rejected, (state, action) => {
       state.status = 'failed';
-      state.error = action.payload as string;
-      //handle if not have action.payload to send unable to connect server
+      if(!action.payload) {
+        notification.error('Неуспешно свързване със сървъра.', 3000);
+        return 
+      }
+      
+      state.error = (action.payload as { message: string }).message;
+      if(state.error === 'Incorrect email or password') {
+        notification.error('Грешен имейл или парола', 3000);
+        return;
+      }
+      notification.error(state.error, 3000);
     })
     .addCase(register.pending, (state) => {
       state.status = 'loading';
@@ -59,12 +69,17 @@ const authSlice = createSlice({
       state.status = 'succeeded';
       state.user = action.payload;
       state.isAuthenticated = true;
-      setLocalStorage(state.user)
+      setLocalStorage(state.user);
+      notification.success('Успешно влизане', 2000);
     })
     .addCase(register.rejected, (state, action) => {
       state.status = 'failed';
-      state.error = action.payload as string;
-      //handle if not have action.payload to send unable to connect server
+      if(!action.payload) {
+        notification.error('Неуспешно свързване със сървъра.', 3000);
+        return 
+      }
+      state.error = (action.payload as { message: string }).message;
+      notification.error(state.error, 3000);
     })
     .addCase(logout.pending, (state) => {
       state.status = 'loading';
@@ -77,8 +92,12 @@ const authSlice = createSlice({
     })
     .addCase(logout.rejected, (state, action) => {
       state.status = 'failed';
-      state.error = action.payload as string;
-       //handle if not have action.payload to send unable to connect server
+      if(!action.payload) {
+        notification.error('Неуспешно свързване със сървъра.', 3000);
+        return 
+      }
+      state.error = (action.payload as { message: string }).message;
+      notification.error(state.error, 3000);
     })
     .addCase(updatePoints.pending, (state) => {
       state.status = 'loading';
@@ -90,8 +109,12 @@ const authSlice = createSlice({
     })
     .addCase(updatePoints.rejected, (state, action) => {
       state.status = 'failed';
-      state.error = action.payload as string;
-      //handle if not have action.payload to send unable to connect server
+      if(!action.payload) {
+        notification.error('Неуспешно свързване със сървъра.', 3000);
+        return 
+      }
+      state.error = (action.payload as { message: string }).message;
+      notification.error(state.error, 3000);
     })
     .addCase(getPoints.pending, (state) => {
       state.status = 'loading';
@@ -102,8 +125,12 @@ const authSlice = createSlice({
     })
     .addCase(getPoints.rejected, (state, action) => {
       state.status = 'failed';
-      state.error = action.payload as string;
-       //handle if not have action.payload to send unable to connect server
+      if(!action.payload) {
+        notification.error('Неуспешно свързване със сървъра.', 3000);
+        return 
+      }
+      state.error = (action.payload as { message: string }).message;
+      notification.error(state.error, 3000);
     })
     .addCase(getUserPoints.pending, (state) => {
       state.status = 'loading';
@@ -114,8 +141,12 @@ const authSlice = createSlice({
     })
     .addCase(getUserPoints.rejected, (state, action) => {
       state.status = 'failed';
-      state.error = action.payload as string;
-       //handle if not have action.payload to send unable to connect server
+      if(!action.payload) {
+        notification.error('Неуспешно свързване със сървъра.', 3000);
+        return 
+      }
+      state.error = (action.payload as { message: string }).message;
+      notification.error(state.error, 3000);
     })
   }
 });

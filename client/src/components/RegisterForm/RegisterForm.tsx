@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './RegisterForm.module.css';
-import { AppDispatch } from "../../state/store";
-import { useDispatch } from "react-redux";
+import { AppDispatch, RootState } from "../../state/store";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -20,6 +20,13 @@ const RegisterForm: React.FC = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
+    const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
+
+    useEffect(() => {
+      if (isAuthenticated) {
+        navigate('/game');
+      }
+    }, [isAuthenticated]);
 
   return (
     <Formik
@@ -27,7 +34,6 @@ const RegisterForm: React.FC = () => {
         validationSchema={registerSchema}
         onSubmit={(credentials) => {       
           dispatch(register(credentials));
-          navigate('/');
         }}
       >
     {({ errors, touched, isValid }) => (

@@ -23,7 +23,6 @@ const LevelRoute: React.FC<LevelRouteProps> = ({ element }) => {
 
   if(!haveEnoughPoints) {
     alert("Нямаш достатъчно точки");
-    
   }
 
   return haveEnoughPoints ? element : <Navigate to="/game" state={{ from: location }} />;
