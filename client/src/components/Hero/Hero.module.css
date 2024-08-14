@@ -22,7 +22,7 @@
 }
 
 .hero-img img {
-    width: 210px;
+    width: 230px;
     height: 300px; 
     object-fit: cover; 
 }
@@ -30,4 +30,5 @@
 .hero-header {
     margin-top: 0.5rem;
     color: #f3d22d; 
+    font-size: 0.8rem;
 }
