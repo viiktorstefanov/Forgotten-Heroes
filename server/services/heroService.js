@@ -27,22 +27,29 @@ async function createHero(title, imageUrl, category, dateBirth, dateDeath, histo
 };
 
 async function getHeroes(category) {
-    const heroes = await Hero.find({ category }).sort({ dateBirth: 1 }); ;
+    const heroes = await Hero.find({ category });
 
     if (!heroes.length) {
         throw new Error('No heroes found for this category');
     }
 
-    const filteredHeroes = heroes.map((hero) => {
+    const sortedHeroes = heroes.sort((a, b) => {
+        const dateA = new Date(a.dateBirth);
+        const dateB = new Date(b.dateBirth);
+        return dateA - dateB; 
+    });
+
+    const filteredHeroes = sortedHeroes.map((hero) => {
         return { 
             _id: hero._id, 
             title: hero.title,
             imageUrl: hero.imageUrl,
-                }
+        }
     });
-    
+
     return filteredHeroes;
 }
+
 
 async function getRandomHero() {
     const count = await Hero.countDocuments().exec();
