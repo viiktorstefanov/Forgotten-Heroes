@@ -27,7 +27,7 @@ async function createHero(title, imageUrl, category, dateBirth, dateDeath, histo
 };
 
 async function getHeroes(category) {
-    const heroes = await Hero.find({ category });
+    const heroes = await Hero.find({ category }).sort({ dateBirth: 1 }); ;
 
     if (!heroes.length) {
         throw new Error('No heroes found for this category');
