@@ -1,8 +1,8 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import { LoginData, PointsData, RegisterData, User } from './AuthService';
 
-// const apiUrl = process.env.REACT_APP_API_URL;
-const apiUrl = 'http://localhost:5000';
+const apiUrl = process.env.REACT_APP_API_URL;
+// const apiUrl = 'http://localhost:5000';
 
 const request = async (method: string, url: string, data?: PointsData | LoginData | RegisterData | null, user?: User) => {
   const options: AxiosRequestConfig = {

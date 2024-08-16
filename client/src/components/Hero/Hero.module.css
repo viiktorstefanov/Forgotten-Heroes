@@ -19,16 +19,22 @@
     overflow: hidden;
     border: 3px solid #f3d22d;
     border-radius: 6px;
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out; 
+}
+
+.hero-img-loaded {
+    opacity: 1; 
 }
 
 .hero-img img {
     width: 230px;
-    height: 300px; 
-    object-fit: cover; 
+    height: 300px;
+    object-fit: cover;
 }
 
 .hero-header {
     margin-top: 0.5rem;
-    color: #f3d22d; 
+    color: #f3d22d;
     font-size: 0.8rem;
 }
