@@ -23,6 +23,10 @@ function isAdmin() {
     return (req, res, next) => {
 
         const user = JSON.parse(req.headers.user);
+
+        if(!user) {
+            res.status(400).json({ message: "Yo're not allowed to post new heroes"});
+        }
        
         if(user._id !== '66b8a6d75d9a8369ec3b809c') {
             res.status(400).json({ message: 'You are not admin.'});
