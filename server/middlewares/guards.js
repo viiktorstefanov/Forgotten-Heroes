@@ -21,14 +21,20 @@ function isGuest() {
 
 function isAdmin() {
     return (req, res, next) => {
-       
-        if(JSON.parse(req.headers.user)._id !== '66b8a6d75d9a8369ec3b809c') {
-            res.status(400).json({ message: 'You are not admin.'});
-        }else {
-            next();
+        try {
+            const user = JSON.parse(req.headers.user);
+
+            if (user && user._id === '66b8a6d75d9a8369ec3b809c') {
+                next();
+            } else {
+                res.status(400).json({ message: 'You are not admin.' });
+            }
+        } catch (error) {
+            res.status(400).json({ message: 'Invalid user data.' });
         }
     }
 }
+
 
 module.exports = {
     hasUser,
