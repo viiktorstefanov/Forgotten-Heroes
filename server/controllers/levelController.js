@@ -1,8 +1,9 @@
 const levelController = require('express').Router();
+const { isAdmin } = require('../middlewares/guards');
 const { createLevel, getUserLevels, getLevelQuestions } = require('../services/levelService');
 const { parseError } = require('../utils/parseError');
 
-levelController.post('/', async(req, res) => {
+levelController.post('/', isAdmin() ,async(req, res) => {
     try {
       const level = await createLevel(req.body.levelNumber, req.body.requiredPoints, req.body.winPoints);
 

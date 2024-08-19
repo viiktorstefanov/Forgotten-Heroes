@@ -1,8 +1,9 @@
 const questionController = require('express').Router();
+const { isAdmin } = require('../middlewares/guards');
 const { createQuestion  } = require('../services/questionService');
 const { parseError } = require('../utils/parseError');
 
-questionController.post('/', async(req, res) => {
+questionController.post('/', isAdmin(), async(req, res) => {
     try {
       
       const question = await createQuestion(req.body.question, req.body.options, req.body.answer, req.body.level);
