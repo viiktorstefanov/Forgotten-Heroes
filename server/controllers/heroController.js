@@ -1,4 +1,5 @@
 const heroController = require('express').Router();
+const { isAdmin } = require('../middlewares/guards');
 const { getHeroes, getHero, createHero, getRandomHero } = require('../services/heroService');
 const { parseError } = require('../utils/parseError');
 
@@ -62,6 +63,7 @@ heroController.get('/:heroId', async(req, res) => {
 });
 
 heroController.post('/',
+  isAdmin(),
   async (req, res) => {
       try {
           const hero = await createHero(req.body.title, req.body.imageUrl, req.body.category, req.body.dateBirth, req.body.dateDeath, req.body.historyMain, req.body.historyAdditional, req.body.quote);

@@ -19,7 +19,21 @@ function isGuest() {
     }
 };
 
+function isAdmin() {
+    return (req, res, next) => {
+
+        const user = JSON.parse(req.headers.user);
+       
+        if(user._id !== '66b8a6d75d9a8369ec3b809c') {
+            res.status(400).json({ message: 'You are not admin.'});
+        }else {
+            next();
+        }
+    }
+}
+
 module.exports = {
     hasUser,
     isGuest,
+    isAdmin
 }
