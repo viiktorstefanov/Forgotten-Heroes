@@ -1,3 +1,6 @@
+require('dotenv').config();
+const ADMIN = process.env.ADMIN;
+
 function hasUser() {
     return (req, res, next) => {
         if(req.headers.user) {
@@ -24,7 +27,7 @@ function isAdmin() {
         try {
             const user = JSON.parse(req.headers.user);
 
-            if (user && user._id === '66b8a6d75d9a8369ec3b809c') {
+            if (user && user._id === ADMIN) {
                 next();
             } else {
                 res.status(400).json({ message: 'You are not admin.' });
