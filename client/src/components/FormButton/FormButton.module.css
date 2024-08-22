@@ -18,3 +18,10 @@
     background-color: #f3d22d;
     border: none;
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+  
+ .btn {
+   font-size: 1.4rem;
+ } 
+}

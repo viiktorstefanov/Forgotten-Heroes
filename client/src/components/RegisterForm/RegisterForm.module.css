@@ -16,3 +16,22 @@
     font-size: 1rem;
     text-align: end;
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+    .form-container {
+        
+        font-size: 1.1rem;
+    }
+
+    .email-input, .password-input {
+        margin-left: 0.5rem;
+    }
+
+    .reg-btn {
+        font-size: 1.1rem;
+    }
+
+    .error {
+        font-size: 0.8rem;
+    }
+}

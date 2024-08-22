@@ -21,6 +21,10 @@ const MobileNavBar: React.FC = () => {
         setIsMenuOpen((prev) => !prev);
     };
 
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    }
+
     const filteredRoutes = routes.filter(route => {
         if (!isAuthenticated && route.label === 'ИЗХОД') return false;
         if (isAuthenticated && route.label === 'ВХОД') return false;
@@ -33,7 +37,7 @@ const MobileNavBar: React.FC = () => {
             <div onClick={toggleMenu} className={styles['menu-button']}><FontAwesomeIcon icon={faBars} /></div>
             <div className={`${styles['menu-content']} ${isMenuOpen ? styles['show'] : null}`}>
                 <ul>
-                    {filteredRoutes.map((route) => <li className={styles['nav-item']} key={route.id}><NavBarItem route={route.route} label={route.label}/></li>)}
+                    {filteredRoutes.map((route) => <li onClick={closeMenu} className={styles['nav-item']} key={route.id}><NavBarItem route={route.route} label={route.label}/></li>)}
                 </ul>
             </div>
         </div>

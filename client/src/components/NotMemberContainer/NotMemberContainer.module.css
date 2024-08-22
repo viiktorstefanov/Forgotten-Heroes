@@ -23,3 +23,20 @@
 .reg-btn:hover {
     opacity: 0.8;
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+  
+    .not-member-container {
+        margin-top: 5rem;
+        margin-bottom: 10rem;
+    }
+
+    .not-member-container h2 {
+        font-size: 1.1rem;
+    }
+
+    .not-member-container a {
+        font-size: 1.1rem;
+    }
+
+   }
