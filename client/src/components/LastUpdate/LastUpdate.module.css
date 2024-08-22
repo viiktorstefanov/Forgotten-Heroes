@@ -48,3 +48,15 @@
         transform: scale(1);
     }
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+    .img-wrapper img {
+       width: 150px;
+    }
+
+    .header {
+        padding: 2rem;
+        line-height: 1.5;
+        font-size: 1.3rem;
+    }   
+}

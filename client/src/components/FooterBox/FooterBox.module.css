@@ -6,3 +6,9 @@
     align-items: center;
     gap: 0.6rem;
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+   .footer-box {
+    font-size: 1.1rem;
+   }  
+}

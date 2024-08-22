@@ -65,17 +65,25 @@
     flex-direction: column;
   }
 
+  .body-info {
+    margin-top: 2rem;
+    order: 1;
+  }
+
   .body-info-header {
     font-size: 1.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .body-info-subtitle {
     font-size: 1.1rem;
     padding: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .body img {
     margin-right: 0;
+    width: 290px;
   }
   
 }
