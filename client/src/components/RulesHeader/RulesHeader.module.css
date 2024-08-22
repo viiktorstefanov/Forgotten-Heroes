@@ -1,3 +1,9 @@
 .rules-header {
     color: #f3d22d;
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+    .rules-header {
+        font-size: 1.2rem;
+    }
+}

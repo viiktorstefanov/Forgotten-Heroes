@@ -6,3 +6,10 @@
         max-width: 900px;
         width: 100%;
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+       .category-container {
+        margin-top: 3rem;
+        max-width: 320px;
+       }
+    }

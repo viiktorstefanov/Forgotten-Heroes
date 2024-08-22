@@ -32,7 +32,7 @@ const FailResult: React.FC<FailResultProps> = ( { numberCorrectAnswer, levelNumb
             {result.map((question, index) => {
                 return (
                     <div className={styles['question-row']} key={question._id}>
-                        <h3 className={styles['question-header']}>{`${index+1}.`}{question.question}?</h3>
+                        <h3 className={styles['question-header']}>{`${index+1}.`}{question.question}</h3>
                         <div className={styles['question-answers']}>
                             {question.userChoice !== question.answer && <>
                                 <span className={`${styles['question-answer']} ${styles['right-answer']}`}>{failData.rightAnswer} {question.answer}</span>

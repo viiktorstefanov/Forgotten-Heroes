@@ -18,3 +18,10 @@
       transform: scale(1);
   }
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+ .hero-container {
+  margin-top: 3rem;
+  max-width: 300px;
+ }
+}

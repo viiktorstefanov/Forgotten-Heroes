@@ -7,3 +7,9 @@
     justify-content: center;
     align-items: center;
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+    .levels-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+ }

@@ -110,3 +110,47 @@
 .right-answer {
     background-color: #238622;
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+    .fail-result-container {
+      margin-top: 3rem;
+    }
+
+    .fail-header {
+        font-size: 1.1rem;
+        gap: 2rem;
+    }
+
+    .fail-header .emoticon {
+        font-size: 8rem;
+    }
+
+    .results {
+       font-size: 0.9rem;
+       margin-bottom: 3rem;
+    }
+
+    .questions h1 {
+        font-size: 1.8rem;
+    }
+
+    .questions {
+       gap: 1rem;
+    }
+
+    .question-header {
+        margin-bottom: 1rem;
+        line-height: 1.5;
+        font-size: 1.1rem;
+    }
+
+    .question-row {
+        max-width: 320px;
+    }
+    
+    .routes {
+        margin-top: 7rem;
+        font-size: 1.1rem;
+        max-width: 320px;
+    }
+ }

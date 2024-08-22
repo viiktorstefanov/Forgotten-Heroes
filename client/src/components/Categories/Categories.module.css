@@ -6,3 +6,11 @@
     max-width: 900px;
     height: auto;
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+    .category-container {
+        grid-template-columns: repeat(1, 0.8fr);
+        justify-content: center;
+        gap: 3rem;
+    }
+}

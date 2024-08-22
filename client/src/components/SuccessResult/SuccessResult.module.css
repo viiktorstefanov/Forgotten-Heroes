@@ -64,3 +64,31 @@
     margin-left: 0.5rem;
 }
 
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+    .success-result-container {
+       max-width: 320px;
+       margin-top: 3rem;
+    }
+
+    .sucess-header {
+        font-size: 0.9rem;
+    }
+
+    .success-result-container .emoticon {
+        font-size: 7rem;
+    }
+
+    .results {
+        font-size: 0.9rem;
+    }
+
+    .points {
+        font-size: 1.3rem;
+    }
+
+    .routes {
+        margin-top: 7rem;
+        font-size: 1.1rem;
+        max-width: 320px;
+    }
+ }

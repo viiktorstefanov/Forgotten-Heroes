@@ -3,3 +3,12 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+  .options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

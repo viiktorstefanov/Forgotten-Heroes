@@ -16,3 +16,9 @@
   color: #000;
   cursor: pointer;
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+  .option {
+    width: 320px;
+  }
+}

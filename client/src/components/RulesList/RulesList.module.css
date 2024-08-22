@@ -18,3 +18,14 @@
 .m-left-child {
     margin-left: 3rem
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+    .row {
+        font-size: 1rem;
+    }
+
+    .rules-list ul {
+        font-size: 1rem;
+    }
+}
+

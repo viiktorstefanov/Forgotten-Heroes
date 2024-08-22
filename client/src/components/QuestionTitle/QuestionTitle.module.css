@@ -5,3 +5,10 @@
     margin-bottom: 5rem;
     font-family: "Cactus Classical Serif", serif;
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+    .question {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+ }

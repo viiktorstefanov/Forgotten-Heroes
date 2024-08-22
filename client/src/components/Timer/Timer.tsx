@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './Timer.module.css';
 
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../state/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../state/store';
 import { saveResult } from '../../state/questions/questionsSlice';
 import { Question } from '../../services/QuestionService';
 
@@ -17,12 +17,13 @@ type TimerProps = {
 const Timer: React.FC<TimerProps> = ({ duration, onComplete, restart, question }) => {
   
   const dispatch = useDispatch<AppDispatch>();
+  const isMobile = useSelector((state: RootState) => state.screen.isMobile);
 
   return (
     <div className={styles['timer-container']}>
       <CountdownCircleTimer
-        size={100}
-        strokeWidth={8}
+        size={isMobile ? 80 : 100}
+        strokeWidth={isMobile ? 5 : 8}
         isSmoothColorTransition={true}
         key={restart}
         isPlaying

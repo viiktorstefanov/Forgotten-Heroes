@@ -5,3 +5,9 @@
     align-items: center;
     margin-top: 5rem;
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+    .timer-container {
+        margin-top: 3rem;
+    }
+ }
