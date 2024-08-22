@@ -3,3 +3,9 @@
     border-radius: 6px;
     width: 1020px;
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+    .border {
+        width: 100%;
+    }
+}

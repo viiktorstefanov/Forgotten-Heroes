@@ -19,3 +19,10 @@
         transform: scale(1);
     }
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+    .welcome-container {
+        max-width: 428px;
+        margin-bottom: 3rem;
+    }
+}

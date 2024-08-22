@@ -3,6 +3,7 @@ import authReducer from './auth/authSlice';
 import heroReducer from './hero/heroSlice';
 import levelsReducer from './levels/levelsSlice';
 import questionsReducer from './questions/questionsSlice';
+import screenReducer from './screen/screenSlice';
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     hero: heroReducer,
     levels: levelsReducer,
     questions: questionsReducer,
+    screen: screenReducer,
   },
 });
 

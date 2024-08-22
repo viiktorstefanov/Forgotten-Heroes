@@ -79,3 +79,9 @@
 .brilliant-button:active {
     transform: scale(0.95);
 }
+
+@media (min-device-width: 360px) and (max-device-width: 428px) and (orientation: portrait) {
+    .brilliant-button {
+        font-size: 1.1rem;
+    }
+}
