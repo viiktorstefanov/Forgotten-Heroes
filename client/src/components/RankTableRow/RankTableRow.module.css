@@ -18,19 +18,27 @@
   
   .rank-table-tr span:nth-child(1) {
     display: flex;
-    margin-left: 30px; 
   }
   
   .rank-table-tr:nth-child(odd) {
     background-color: #e4cf62;
   }
-  
-  .rank-table-tr::before {
-    content: counter(row-num) ".";
-    counter-increment: row-num;
-    position: absolute;
-    left: 10px;
+
+  .user-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    margin-left: 1.2rem;
+  }
+
+  .user-index {
     font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .selected-user {
+    opacity: 0.9;
   }
 
   .table-tr-user {

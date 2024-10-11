@@ -19,8 +19,8 @@ const RankTable: React.FC = () => {
   return (
     <div className={styles["rank-table"]}>
       {usersPointsData && usersPointsData?.length > 0 ? <RankTableHead /> : null}
-      {usersPointsData?.map((user) => 
-        <RankTableRow user={user} key={user._id}/>
+      {usersPointsData?.map((user, index) => 
+        <RankTableRow user={user} index={index} key={user._id}/>
       )}
     </div>
   );

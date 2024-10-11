@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from "react-router-dom";import { copyrights } from '../../constants/copyrights';
+import { Link } from "react-router-dom";
+import { copyrights } from '../../constants/copyrights';
 ;
 
 const CopyrightOwner: React.FC = () => {
